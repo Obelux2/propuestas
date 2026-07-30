@@ -36,7 +36,7 @@ input:focus-visible {
 /* ===== Header ===== */
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(251, 250, 247, .92); backdrop-filter: blur(8px); border-bottom: 1px solid #eae6dd; }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-.site-header .logo img { height: 44px; }
+.site-header .logo img { height: 44px; width: auto; }
 .site-nav { display: flex; gap: 22px; align-items: center; }
 .site-nav a { color: var(--indigo); text-decoration: none; font-size: .95rem; transition: color .15s ease; }
 .site-nav a:hover { color: var(--magenta); }
@@ -144,7 +144,7 @@ input:focus-visible {
 .site-footer { background: var(--indigo-noche); color: #c9c6e8; padding: 56px 0 32px; margin-top: 72px; }
 .site-footer a { color: #c9c6e8; transition: color .15s ease; }
 .site-footer a:hover { color: #fff; }
-.site-footer .logo img { height: 48px; margin-bottom: 18px; }
+.site-footer .logo img { height: 48px; width: auto; margin-bottom: 18px; }
 .site-footer p { margin-top: 10px; }
 
 /* ===== Móvil ===== */
