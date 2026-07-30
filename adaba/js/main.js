@@ -54,7 +54,7 @@
     panel.innerHTML =
       '<div class="wa-header"><strong>Adaba · Asistente</strong>' +
       '<span class="wa-sim">Simulación — así respondería el agente IA de la Fase 2</span></div>' +
-      '<div class="wa-mensajes"></div>' +
+      '<div class="wa-mensajes" role="log" aria-live="polite" aria-atomic="false"></div>' +
       '<div class="wa-opciones"></div>';
 
     var mensajes = panel.querySelector(".wa-mensajes");
