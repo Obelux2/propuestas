@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta Kinexia — Cara nueva, tienda intacta</title>
+<style>
+html,body{height:auto;overflow-y:auto}
+:root{
+  --bosque:#1F2E1C;
+  --bosque-2:#2C4026;
+  --papel:#F7F5EE;
+  --crema:#FDFCF8;
+  --lila:#7A64AC;
+  --lila-suave:#EAE4F4;
+  --salvia:#8FA77C;
+  --salvia-suave:#E3EAD8;
+  --oro:#BC9440;
+  --oro-suave:#F1E8D2;
+  --tinta:#25301F;
+  --gris:#5D6854;
+  --linea:#DDDDCE;
+  --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Karla',system-ui,sans-serif;background:var(--papel);color:var(--tinta);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+a{color:var(--lila)}
+
+.serif{font-family:'Fraunces',Georgia,'Times New Roman',serif}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--bosque) 0%,var(--bosque-2) 75%);color:var(--papel);padding:72px 0 60px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-140px;top:-100px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(122,100,172,.35),transparent 65%)}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#B9A9DE;margin-bottom:16px}
+.hero h1{font-family:'Fraunces',Georgia,serif;font-weight:560;font-size:clamp(34px,5.2vw,56px);line-height:1.08;letter-spacing:-.01em;text-wrap:balance;max-width:18ch}
+.hero h1 em{font-style:italic;color:#CBBBEF}
+.hero p.lede{margin-top:18px;color:#C7D2BC;font-size:18px;max-width:52ch}
+.hero .meta{margin-top:28px;font-size:13px;color:#A9B89C;letter-spacing:.06em}
+
+/* secciones */
+section{padding:52px 0}
+section+section{padding-top:8px}
+h2{font-family:'Fraunces',Georgia,serif;font-weight:560;font-size:clamp(24px,3vw,32px);margin-bottom:8px;text-wrap:balance}
+.sub{color:var(--gris);font-size:16px;max-width:60ch;margin-bottom:26px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--lila-suave);color:#3C2F62;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:16px;margin-right:12px;vertical-align:middle}
+
+/* tarjetas pilares */
+.pilares{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pilar{background:var(--crema);border:1px solid var(--linea);border-radius:var(--r);padding:24px}
+.pilar h3{font-family:'Fraunces',Georgia,serif;font-weight:560;font-size:19px;margin-bottom:8px}
+.pilar p{font-size:14.5px;color:var(--gris)}
+.pilar .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:99px;padding:4px 12px;margin-bottom:12px}
+.t-verde{background:var(--salvia-suave);color:#2C4026}
+.t-lila{background:var(--lila-suave);color:#3C2F62}
+.t-oro{background:var(--oro-suave);color:#5C4716}
+@media(max-width:680px){.pilares{grid-template-columns:1fr}}
+
+/* listas sí / no */
+.dos-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:680px){.dos-col{grid-template-columns:1fr}}
+.caja{border-radius:var(--r);padding:24px}
+.caja h3{font-family:'Fraunces',Georgia,serif;font-weight:560;font-size:19px;margin-bottom:14px}
+.caja ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+.caja li{display:flex;gap:10px;align-items:flex-start}
+.caja-si{background:var(--salvia-suave)}
+.caja-si li::before{content:"✓";color:#2C4026;font-weight:700;flex-shrink:0}
+.caja-no{background:var(--crema);border:1px solid var(--linea)}
+.caja-no li::before{content:"—";color:var(--gris);font-weight:700;flex-shrink:0}
+.caja-no p.pq{margin-top:14px;font-size:13.5px;color:var(--gris);font-style:italic}
+
+/* ley */
+.ley{background:var(--crema);border:1px solid var(--linea);border-radius:var(--r);padding:28px}
+.fecha{display:inline-block;background:var(--bosque);color:#F2E8C9;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:15px;border-radius:99px;padding:8px 20px;margin-bottom:16px}
+.ley ol{margin:16px 0 0 0;padding-left:0;list-style:none;counter-reset:paso;display:flex;flex-direction:column;gap:12px}
+.ley ol li{counter-increment:paso;display:flex;gap:14px;font-size:14.5px;align-items:flex-start}
+.ley ol li::before{content:counter(paso);flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--oro-suave);color:#5C4716;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.ley .nota{margin-top:20px;font-size:13px;color:var(--gris);border-top:1px solid var(--linea);padding-top:14px}
+
+/* demos */
+.demos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:680px){.demos{grid-template-columns:1fr}}
+.demo-card{border-radius:var(--r);padding:26px;text-decoration:none;display:block;transition:transform .15s,box-shadow .15s;color:inherit}
+.demo-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(31,46,28,.14)}
+.demo-card.d-kinexia{background:linear-gradient(150deg,var(--lila-suave),#D8CCEE);color:#3C2F62}
+.demo-card.d-sofi{background:linear-gradient(150deg,#F5E3CE,#EDD5B8);color:#6B4A2A}
+.demo-card h3{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:21px;margin-bottom:6px}
+.demo-card p{font-size:14px;opacity:.85}
+.demo-card .ir{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;letter-spacing:.06em}
+
+/* plan de trabajo */
+.plan{display:flex;flex-direction:column;gap:12px}
+.hito{background:var(--crema);border:1px solid var(--linea);border-radius:var(--r);padding:18px 22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.sem{background:var(--lila-suave);color:#3C2F62;border-radius:12px;padding:10px 14px;text-align:center;min-width:92px}
+.sem b{font-family:'Fraunces',Georgia,serif;font-size:18px;display:block;line-height:1.15}
+.sem span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.sem.verde{background:var(--salvia-suave);color:#2C4026}
+.sem.oro{background:var(--oro-suave);color:#5C4716}
+.hito h3{font-family:'Fraunces',Georgia,serif;font-weight:560;font-size:17px;margin-bottom:3px}
+.hito p{font-size:14px;color:var(--gris)}
+.plan-nota{font-size:13px;color:var(--gris);margin-top:16px;font-style:italic}
+@media(max-width:560px){.hito{grid-template-columns:1fr}}
+
+/* siguiente paso */
+.paso{background:var(--bosque);color:var(--papel);border-radius:var(--r);padding:32px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.paso h3{font-family:'Fraunces',Georgia,serif;font-weight:560;font-size:22px;margin-bottom:6px}
+.paso p{color:#C7D2BC;font-size:15px;max-width:48ch}
+.paso .llave{font-size:40px}
+
+/* pie */
+.pie{padding:36px 0 44px;text-align:center;font-size:13px;color:var(--gris)}
+.pie b{font-family:'Fraunces',Georgia,serif;font-size:15px;color:var(--tinta)}
+
+@media print{
+  .hero{background:var(--bosque)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .demo-card:hover{transform:none;box-shadow:none}
+  section{padding:28px 0}
+  a{text-decoration:none;color:inherit}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Propuesta de rediseño · kinexia.cl</p>
+    <h1>Cara nueva, <em>tienda intacta</em></h1>
+    <p class="lede">Un rediseño completo de la experiencia de compra de Kinexia, montado sobre la plataforma que ya funciona. Nada se migra, nada se pierde, nadie tiene que crear su cuenta de nuevo.</p>
+    <p class="meta">Preparada por Francisco Velásquez · Julio 2026</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">1</span>Qué proponemos</h2>
+    <p class="sub">kinexia.cl corre sobre Jumpseller, una plataforma chilena de e-commerce que se encarga de lo pesado: carro, checkout, pagos, seguridad y cuentas de clientes. La propuesta es renovar todo lo que se ve — el <i>theme</i> — sin tocar nada de lo que funciona por debajo.</p>
+    <div class="pilares">
+      <div class="pilar">
+        <span class="tag t-lila">Diseño</span>
+        <h3>Una tienda ordenada por lo que vive la clienta</h3>
+        <p>Home organizada en los tres mundos de Kinexia (esencias, cursos, nutrición), compra guiada por necesidad ("ansiedad", "dormir mejor"), fichas de producto en lenguaje simple y agotados al final — no dando la bienvenida.</p>
+      </div>
+      <div class="pilar">
+        <span class="tag t-verde">Continuidad</span>
+        <h3>Tus 5 años de clientes quedan donde están</h3>
+        <p>Clientes registrados, historial de pedidos, catálogo y posicionamiento en Google: todo queda intacto, porque no hay migración. Es cambio de ropa, no de casa.</p>
+      </div>
+      <div class="pilar">
+        <span class="tag t-oro">Confianza</span>
+        <h3>WhatsApp como canal protagonista</h3>
+        <p>La asesoría personalizada es lo que distingue a Kinexia. El diseño la pone visible en todo el recorrido: antes de comprar, en cada ficha y en cada duda.</p>
+      </div>
+      <div class="pilar">
+        <span class="tag t-lila">Cursos</span>
+        <h3>La formación con su propio espacio</h3>
+        <p>Calendario de cursos en vivo con fechas siempre vigentes, y los grabados de la Academia disponibles a su ritmo. Cuando un curso termina, no queda una página muerta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">2</span>Qué NO proponemos (y por qué es buena noticia)</h2>
+    <p class="sub">Parte del valor de esta propuesta está en lo que decidimos no hacer.</p>
+    <div class="dos-col">
+      <div class="caja caja-si">
+        <h3>Se mantiene</h3>
+        <ul>
+          <li>Jumpseller como plataforma: pagos, carro y seguridad ya resueltos</li>
+          <li>Cuentas y contraseñas de todos los clientes</li>
+          <li>Historial completo de pedidos</li>
+          <li>Las direcciones del sitio (el SEO no se resiente)</li>
+        </ul>
+      </div>
+      <div class="caja caja-no">
+        <h3>Se descarta</h3>
+        <ul>
+          <li>Cambiarse a otra plataforma (Shopify, sitio a medida)</li>
+          <li>Reconstruir el carro o el registro de clientes</li>
+          <li>Tocar la Academia antes de entender cómo está armada hoy</li>
+        </ul>
+        <p class="pq">Replataformar costaría más, arriesgaría el historial y obligaría a cada cliente a crear su contraseña de nuevo — todo eso, a cambio de nada visible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">3</span>Una fecha que conviene aprovechar</h2>
+    <p class="sub">La nueva ley chilena de protección de datos personales (Ley 21.719) empieza a regir en diciembre de 2026 y aplica a toda tienda con base de clientes. La parte técnica la cubre Jumpseller; lo que queda del lado de Kinexia es ordenamiento — y conviene hacerlo junto con el rediseño, de una sola vez.</p>
+    <div class="ley">
+      <span class="fecha">Vigencia: diciembre 2026</span>
+      <ol>
+        <li>Política de privacidad real y visible: qué datos se guardan, para qué, y cómo un cliente ejerce sus derechos.</li>
+        <li>Lista de correos con consentimiento demostrable. Si hay contactos históricos sin registro claro, campaña de re-confirmación antes de diciembre.</li>
+        <li>Saber responder cuando alguien pida ver, corregir o borrar sus datos — el admin de Jumpseller tiene las herramientas, falta el hábito.</li>
+        <li>Usar la base de clientes solo para lo que se recolectó.</li>
+      </ol>
+      <p class="nota">Esto es orientación para dimensionar el trabajo, no asesoría legal. El texto final de la política de privacidad corresponde revisarlo con un abogado.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">4</span>Las demos, para verlo funcionando</h2>
+    <p class="sub">Las dos propuestas son navegables: se puede cliquear todo, entrar a cada producto y cada curso. Lo que se ve es exactamente el diseño propuesto.</p>
+    <div class="demos">
+      <a class="demo-card d-kinexia" href="https://obelux2.github.io/propuestas-sofi/kinexia-demo-landing.html">
+        <h3>Demo · Kinexia</h3>
+        <p>El rediseño de la tienda: home, catálogos, fichas de producto y calendario de cursos.</p>
+        <span class="ir">Abrir la demo →</span>
+      </a>
+      <a class="demo-card d-sofi" href="https://obelux2.github.io/propuestas-sofi/la-consulta-de-la-sofi.html">
+        <h3>Demo · La Consulta de la Sofi</h3>
+        <p>El mini-sitio personal: tu consulta, talleres, el programa y agendamiento.</p>
+        <span class="ir">Abrir la demo →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">5</span>Plan de trabajo y tiempos</h2>
+    <p class="sub">El reloj parte cuando tengamos el acceso a Jumpseller. Desde ahí, cinco semanas como techo para tener los dos sitios andando — con buen ritmo de feedback puede ser bastante menos, porque la construcción es la parte rápida: lo que marca el paso son tus fotos, tus textos y tu ojo. Y la tienda nunca deja de vender mientras tanto.</p>
+    <div class="plan">
+      <div class="hito">
+        <div class="sem"><b>Sem. 0</b><span>La llave</span></div>
+        <div>
+          <h3>Acceso y auditoría</h3>
+          <p>Acceso de administrador a Jumpseller. Revisión del theme actual, el catálogo y cómo está armada la lista de correos. Acá se confirma (o ajusta) todo lo que sigue.</p>
+        </div>
+      </div>
+      <div class="hito">
+        <div class="sem"><b>Sem. 1–3</b><span>Diseño</span></div>
+        <div>
+          <h3>El rediseño se convierte en theme</h3>
+          <p>Home, categorías y fichas de producto se construyen como theme en borrador, dentro de la misma tienda. Kinexia sigue funcionando igual: nadie ve nada hasta que esté listo.</p>
+        </div>
+      </div>
+      <div class="hito">
+        <div class="sem"><b>Sem. 3–4</b><span>Detalle</span></div>
+        <div>
+          <h3>Cuenta, checkout y contenido real</h3>
+          <p>Se restilizan las páginas de cuenta y compra, se prueban en celular (donde compra la mayoría) y se cargan fotos y textos definitivos con tu ojo encima.</p>
+        </div>
+      </div>
+      <div class="hito">
+        <div class="sem oro"><b>Paralelo</b><span>Ley 21.719</span></div>
+        <div>
+          <h3>Orden de datos antes de diciembre</h3>
+          <p>Política de privacidad publicada y campaña de re-confirmación de la lista de correos. Corre en paralelo, no atrasa el diseño.</p>
+        </div>
+      </div>
+      <div class="hito">
+        <div class="sem verde"><b>Sem. 5</b><span>Estreno</span></div>
+        <div>
+          <h3>Cambio de theme: instantáneo</h3>
+          <p>Activar el theme nuevo es un switch, no una mudanza. La tienda no cierra ni un minuto y, si algo no gusta, se puede volver atrás con un click.</p>
+        </div>
+      </div>
+      <div class="hito">
+        <div class="sem verde"><b>Bonus</b><span>La Consulta</span></div>
+        <div>
+          <h3>laconsultadelasofi.cl revive en paralelo</h3>
+          <p>El dominio ya es tuyo (vigente hasta 2028). El mini-sitio se publica en hosting gratuito y se apunta el dominio — 1 a 2 semanas, sin costo de operación mensual.</p>
+        </div>
+      </div>
+    </div>
+    <p class="plan-nota">Las 5 semanas son techo, no meta: mientras más rápido fluyan fotos, textos y respuestas por WhatsApp, antes se estrena. Si aparecen sorpresas en la auditoría de la semana 0, se ajusta el plan antes de seguir — no a mitad de camino.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="paso">
+      <div>
+        <h3>El siguiente paso es una llave, no un proyecto</h3>
+        <p>Para dimensionar el trabajo real solo se necesita acceso de administrador a la cuenta Jumpseller de Kinexia. Con eso: revisar el theme actual, ver cuánto de la demo se porta directo y mirar cómo está armada la lista de correos.</p>
+      </div>
+      <span class="llave">🔑</span>
+    </div>
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="wrap">
+    <b>Kinexia · Propuesta de rediseño</b><br>
+    Julio 2026 · Documento de trabajo para conversarlo juntos
+  </div>
+</footer>
+</body>
+</html>

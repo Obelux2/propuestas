@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinexia | Esencias Florales, Cursos y Bienestar en Chile — Demo</title>
+<meta name="description" content="Esencias florales, cursos de terapias florales y suplementos para tu bienestar. Envíos a todo Chile. Demo de rediseño.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,700;1,9..144,460&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bosque:#1F2E1C;
+  --bosque-2:#2C4026;
+  --papel:#F7F5EE;
+  --crema:#FDFCF8;
+  --lila:#7A64AC;
+  --lila-suave:#EAE4F4;
+  --salvia:#8FA77C;
+  --salvia-suave:#E3EAD8;
+  --oro:#BC9440;
+  --oro-suave:#F1E8D2;
+  --tinta:#25301F;
+  --gris:#5D6854;
+  --linea:#DDDDCE;
+  --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Karla',system-ui,sans-serif;background:var(--papel);color:var(--tinta);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+
+/* ---- router ---- */
+.page{display:none}
+.page.activa{display:block;animation:pg .3s ease}
+@keyframes pg{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---- barra anuncio ---- */
+.anuncio{background:var(--bosque);color:#DCE6D2;text-align:center;font-size:13px;padding:8px 14px;letter-spacing:.04em}
+.anuncio b{color:#F2E8C9}
+
+/* ---- header ---- */
+header{background:var(--crema);border-bottom:1px solid var(--linea);position:sticky;top:0;z-index:50}
+.nav{display:flex;align-items:center;gap:22px;padding:14px 0}
+.logo{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:700;font-size:26px;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:8px;cursor:pointer}
+.logo svg{width:26px;height:26px}
+.buscar{flex:1;max-width:420px;display:flex;background:var(--papel);border:1.5px solid var(--linea);border-radius:99px;overflow:hidden}
+.buscar input{flex:1;border:none;background:none;padding:10px 18px;font-family:'Karla',system-ui,sans-serif;font-size:14px;color:var(--tinta)}
+.buscar input:focus{outline:none}
+.buscar button{border:none;background:var(--bosque);color:#fff;padding:0 18px;cursor:pointer;font-size:15px}
+.nav-links{display:flex;gap:20px;font-size:14px;font-weight:600;margin-left:auto}
+.nav-links a{text-decoration:none;padding:6px 2px;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.aqui{border-color:var(--lila)}
+.carro{position:relative;font-size:20px;text-decoration:none}
+.carro i{position:absolute;top:-6px;right:-10px;background:var(--lila);color:#fff;font-style:normal;font-size:10px;font-weight:700;border-radius:99px;padding:1px 5px}
+@media(max-width:840px){.buscar{display:none}.nav-links{gap:12px;font-size:13px}}
+
+/* ---- hero ---- */
+.hero{background:linear-gradient(160deg,var(--bosque) 0%,var(--bosque-2) 70%);color:var(--papel);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(122,100,172,.35),transparent 65%)}
+.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:64px 0;position:relative;z-index:2}
+.hero .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#B9A9DE;margin-bottom:14px}
+.hero h1{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:560;font-size:clamp(34px,4.8vw,54px);line-height:1.08;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:#CBBBEF}
+.hero p.lede{margin:16px 0 26px;color:#C7D2BC;font-size:17px;max-width:46ch}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;font-weight:700;font-size:14px;letter-spacing:.03em;text-decoration:none;border-radius:99px;padding:13px 26px;transition:transform .15s;cursor:pointer;border:none;font-family:'Karla',system-ui,sans-serif}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:#EDE7D3;color:var(--bosque)}
+.btn-s{border:1.5px solid #8B9B7E;color:#DCE6D2;background:transparent}
+.hero-visual{position:relative;height:340px}
+.frasco{position:absolute;border-radius:18px 18px 22px 22px;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.25)}
+.frasco::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:34%;height:18px;background:#3E2F5C;border-radius:6px 6px 0 0}
+.frasco .etq{position:absolute;left:12%;right:12%;top:32%;bottom:14%;background:var(--papel);border-radius:8px;color:var(--tinta);font-size:10px;text-align:center;padding:10px 6px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.frasco .etq b{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:13px}
+.frasco .etq span{color:var(--gris);letter-spacing:.08em;text-transform:uppercase;font-size:8px}
+.f1{width:120px;height:230px;left:8%;bottom:0;transform:rotate(-4deg)}
+.f2{width:140px;height:280px;left:38%;bottom:10px}
+.f3{width:110px;height:200px;right:6%;bottom:0;transform:rotate(5deg)}
+@media(max-width:840px){.hero-in{grid-template-columns:1fr;padding:44px 0}.hero-visual{display:none}}
+
+/* ---- chips necesidad ---- */
+.necesidad{padding:26px 0 8px}
+.necesidad h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--gris);margin-bottom:14px;text-align:center}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.chip{font-size:14px;font-weight:600;text-decoration:none;background:var(--crema);border:1.5px solid var(--linea);border-radius:99px;padding:10px 20px;transition:all .15s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Karla',system-ui,sans-serif}
+.chip:hover{border-color:var(--lila);color:var(--lila);transform:translateY(-2px)}
+.chip svg{width:14px;height:14px;stroke:var(--salvia)}
+
+/* ---- secciones ---- */
+section{padding:54px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:26px;flex-wrap:wrap}
+h2.titulo{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:560;font-size:clamp(26px,3.2vw,36px)}
+.sec-head p{color:var(--gris);font-size:15px;max-width:52ch}
+.ver-todo{font-size:14px;font-weight:700;text-decoration:none;color:var(--lila);white-space:nowrap;cursor:pointer;background:none;border:none;font-family:'Karla',system-ui,sans-serif}
+.ver-todo:hover{text-decoration:underline}
+
+/* ---- mundos ---- */
+.mundos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mundo{border-radius:var(--r);padding:26px 24px 24px;text-decoration:none;position:relative;overflow:hidden;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .18s,box-shadow .18s;cursor:pointer}
+.mundo:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,46,28,.14)}
+.mundo h3{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:700;font-size:24px;margin-bottom:4px}
+.mundo p{font-size:14px;opacity:.85}
+.mundo .ir{margin-top:12px;font-size:13px;font-weight:700;letter-spacing:.06em}
+.mundo.m-esencias{background:linear-gradient(150deg,var(--lila-suave),#D8CCEE);color:#3C2F62}
+.mundo.m-cursos{background:linear-gradient(150deg,var(--salvia-suave),#C8D8B4);color:#2C4026}
+.mundo.m-nutricion{background:linear-gradient(150deg,var(--oro-suave),#E8D8AC);color:#5C4716}
+.mundo .deco{position:absolute;top:-26px;right:-22px;font-size:120px;opacity:.14;font-family:'Fraunces',Georgia,'Times New Roman',serif}
+@media(max-width:840px){.mundos{grid-template-columns:1fr}}
+
+/* ---- productos ---- */
+.grid-prod{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:960px){.grid-prod{grid-template-columns:repeat(2,1fr)}}
+.prod{background:var(--crema);border:1px solid var(--linea);border-radius:var(--r);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s;position:relative}
+.prod:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(31,46,28,.12)}
+.prod-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative}
+.prod-img.v1,.ficha-img.v1{background:linear-gradient(150deg,#EDE8F7,#DCD2EF)}
+.prod-img.v2,.ficha-img.v2{background:linear-gradient(150deg,#E7EEDC,#D3E0C2)}
+.prod-img.v3,.ficha-img.v3{background:linear-gradient(150deg,#F4ECD8,#EADDB8)}
+.prod-img.v4,.ficha-img.v4{background:linear-gradient(150deg,#EAEFF0,#D6E1E2)}
+.tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:4px 11px}
+.tag.oferta{background:var(--bosque);color:#F2E8C9}
+.tag.nuevo{background:var(--lila);color:#fff}
+.tag.agotado{background:#B8B8AC;color:#fff}
+.prod.sinstock{opacity:.6}
+.prod-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.prod-cat{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gris)}
+.prod-nom{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:18px;font-weight:560;line-height:1.2}
+.prod-precio{margin-top:auto;padding-top:8px;font-weight:700;font-size:16px}
+.prod-precio s{color:#9AA290;font-weight:400;font-size:13px;margin-left:8px}
+.estrellas{font-size:12px;color:var(--oro)}
+.estrellas span{color:var(--gris);font-weight:500;margin-left:4px}
+
+/* ---- envío ---- */
+.envio-bar{background:var(--crema);border:1px solid var(--linea);border-radius:var(--r);padding:18px 24px;display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:14px;font-weight:600}
+.envio-bar div{display:flex;gap:9px;align-items:center}
+.envio-bar svg{width:20px;height:20px;stroke:var(--salvia)}
+
+/* ---- curso destacado ---- */
+.curso{background:var(--bosque);color:var(--papel);border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.curso-video{background:linear-gradient(150deg,#3A2E5E,#2C4026);display:flex;align-items:center;justify-content:center;min-height:300px;position:relative;cursor:pointer}
+.play{width:74px;height:74px;border-radius:50%;background:rgba(253,252,248,.92);display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.curso-video:hover .play{transform:scale(1.08)}
+.play::after{content:"";border-left:20px solid var(--bosque);border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.curso-video .nota-video{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12px;color:#C4B8E4;letter-spacing:.08em}
+.curso-info{padding:36px 34px;display:flex;flex-direction:column;gap:12px}
+.curso-info .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#B9A9DE}
+.curso-info h3{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:560;font-size:30px;line-height:1.12}
+.curso-info p{color:#C7D2BC;font-size:15px}
+.curso-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#A9B89C;margin-top:2px}
+.curso-meta b{color:var(--papel)}
+.relatora{display:flex;gap:12px;align-items:center;margin-top:6px}
+.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(140deg,#CBBBEF,#8FA77C);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:700;color:var(--bosque)}
+.relatora span{font-size:13px;color:#C7D2BC}
+.relatora b{display:block;font-size:14px;color:var(--papel)}
+.curso-info .btn{align-self:flex-start;margin-top:8px}
+@media(max-width:840px){.curso{grid-template-columns:1fr}}
+
+/* ---- reseñas ---- */
+.resenas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.resena{background:var(--crema);border:1px solid var(--linea);border-radius:var(--r);padding:22px}
+.resena .estrellas{font-size:14px;margin-bottom:8px}
+.resena p{font-size:14px;color:#43503C;font-style:italic}
+.resena footer{margin-top:12px;font-size:13px;font-weight:700;padding:0}
+.resena footer span{display:block;font-weight:500;color:var(--gris);font-size:12px}
+@media(max-width:840px){.resenas{grid-template-columns:1fr}}
+
+/* ---- páginas de categoría ---- */
+.cab-cat{padding:44px 0 26px}
+.miga{font-size:13px;color:var(--gris);margin-bottom:12px}
+.miga a{cursor:pointer;text-decoration:none;font-weight:600}
+.miga a:hover{color:var(--lila);text-decoration:underline}
+.cab-cat h1{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:560;font-size:clamp(30px,4vw,46px);line-height:1.1}
+.cab-cat .desc{color:var(--gris);max-width:62ch;margin-top:10px;font-size:16px}
+.filtros-cat{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 26px}
+.filtros-cat button{font-family:'Karla',system-ui,sans-serif;font-size:13px;font-weight:700;border:1.5px solid var(--tinta);background:transparent;color:var(--tinta);padding:8px 16px;border-radius:99px;cursor:pointer;transition:all .15s}
+.filtros-cat button:hover{transform:translateY(-1px)}
+.filtros-cat button.on{background:var(--tinta);color:var(--crema)}
+.vacio{text-align:center;color:var(--gris);padding:40px 0;font-size:15px}
+.nota-cat{background:var(--salvia-suave);border-radius:var(--r);padding:18px 22px;font-size:14px;color:#3E5230;margin:34px 0 10px;display:flex;gap:10px;align-items:flex-start}
+.nota-cat b{display:block}
+
+/* ---- lista cursos ---- */
+.lista-cursos{display:flex;flex-direction:column;gap:16px}
+.curso-card{background:var(--crema);border:1px solid var(--linea);border-radius:var(--r);padding:24px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;transition:transform .18s,box-shadow .18s}
+.curso-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,46,28,.1)}
+.fecha-box{background:var(--lila-suave);color:#3C2F62;border-radius:12px;padding:12px 16px;text-align:center;min-width:86px}
+.fecha-box b{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:26px;display:block;line-height:1}
+.fecha-box span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.fecha-box.grab{background:var(--oro-suave);color:#5C4716}
+.curso-card h3{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:560;font-size:21px}
+.curso-card .modo{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--lila);margin-bottom:4px}
+.curso-card .det{font-size:14px;color:var(--gris);margin-top:4px}
+.curso-card .precio-col{text-align:right;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.curso-card .precio-col b{font-size:19px}
+.curso-card .precio-col small{color:var(--gris);font-size:12px}
+.btn-mini{background:var(--bosque);color:var(--crema);font-size:13px;font-weight:700;border:none;border-radius:99px;padding:10px 20px;cursor:pointer;font-family:'Karla',system-ui,sans-serif;transition:transform .15s}
+.btn-mini:hover{transform:translateY(-2px)}
+@media(max-width:720px){.curso-card{grid-template-columns:1fr}.curso-card .precio-col{align-items:flex-start;text-align:left}}
+
+/* ---- footer ---- */
+.pie{background:var(--bosque);color:#B9C6AC;margin-top:40px;padding:48px 0 26px;font-size:14px}
+.pie-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px;margin-bottom:34px}
+.pie h4{font-family:'Fraunces',Georgia,'Times New Roman',serif;color:var(--papel);font-size:17px;margin-bottom:12px}
+.pie ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pie a{text-decoration:none;cursor:pointer}
+.pie a:hover{color:var(--papel);text-decoration:underline}
+.pie .marca{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:700;font-size:24px;color:var(--papel);margin-bottom:10px}
+.pagos{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pago{background:rgba(253,252,248,.1);border:1px solid rgba(253,252,248,.2);border-radius:6px;font-size:11px;font-weight:700;padding:5px 10px;color:#DCE6D2}
+.pie-baja{border-top:1px solid rgba(253,252,248,.15);padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:#8A9A7C}
+@media(max-width:840px){.pie-grid{grid-template-columns:1fr 1fr}}
+
+/* ---- whatsapp / badge ---- */
+.wsp{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.25);z-index:60;text-decoration:none;transition:transform .15s}
+.wsp:hover{transform:scale(1.08)}
+.wsp svg{width:30px;height:30px;fill:#fff}
+.demo-badge{position:fixed;left:16px;bottom:16px;background:var(--tinta);color:var(--papel);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:99px;padding:7px 14px;z-index:60;opacity:.85}
+
+/* ---- chat agente (demo) ---- */
+.chat-panel{position:fixed;right:20px;bottom:88px;width:344px;max-width:calc(100vw - 32px);height:72vh;max-height:540px;background:var(--papel);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden;z-index:61;opacity:0;transform:translateY(12px) scale(.98);pointer-events:none;transition:opacity .2s,transform .2s}
+.chat-panel.abierto{opacity:1;transform:none;pointer-events:auto}
+.chat-head{background:var(--bosque);color:var(--papel);display:flex;align-items:center;gap:10px;padding:12px 14px}
+.chat-ava{width:38px;height:38px;border-radius:50%;background:linear-gradient(140deg,#CBBBEF,#8FA77C);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:700;color:var(--bosque);flex-shrink:0}
+.chat-id{flex:1;line-height:1.25}
+.chat-id b{font-size:15px}
+.chat-id span{font-size:11px;color:#B9C6AC;display:flex;align-items:center;gap:5px}
+.chat-id span::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ADE80}
+.chat-x{background:none;border:none;color:#B9C6AC;font-size:16px;cursor:pointer;padding:4px;line-height:1}
+.chat-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:84%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.42}
+.msg.bot{background:var(--crema);border:1px solid var(--linea);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.yo{background:var(--salvia-suave);color:#2C4026;align-self:flex-end;border-bottom-right-radius:4px}
+.msg b{font-weight:700}
+.typing{display:flex;gap:4px;align-self:flex-start;background:var(--crema);border:1px solid var(--linea);padding:11px 13px;border-radius:14px;border-bottom-left-radius:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#9AA290;animation:tdot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tdot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.chat-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 8px}
+.chat-chips button{font-family:'Karla',system-ui,sans-serif;font-size:12.5px;font-weight:600;background:var(--crema);border:1.5px solid var(--lila-suave);color:var(--lila);border-radius:99px;padding:7px 12px;cursor:pointer;transition:all .12s}
+.chat-chips button:hover{border-color:var(--lila);background:var(--lila-suave)}
+.chat-input{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--linea);background:var(--crema)}
+.chat-input input{flex:1;border:1.5px solid var(--linea);border-radius:99px;padding:9px 14px;font-family:'Karla',system-ui,sans-serif;font-size:14px;background:var(--papel);color:var(--tinta)}
+.chat-input input:focus{outline:none;border-color:var(--salvia)}
+.chat-input button{border:none;background:var(--bosque);color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:15px;flex-shrink:0}
+@media(max-width:480px){.chat-panel{right:12px;left:12px;width:auto;bottom:84px}}
+
+/* ---- ficha producto / curso ---- */
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:44px 0 20px;align-items:start}
+.ficha-img{aspect-ratio:1;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:130px;position:relative}
+.ficha-info h1{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:560;font-size:clamp(28px,3.6vw,42px);line-height:1.1;margin:6px 0 8px}
+.ficha-precio{font-size:26px;font-weight:700;margin:12px 0 2px}
+.ficha-precio s{color:#9AA290;font-weight:400;font-size:17px;margin-left:10px}
+.ficha-desc{color:var(--gris);font-size:16px;margin:14px 0 20px;max-width:52ch}
+.puntos{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;margin-bottom:22px}
+.puntos li{display:flex;gap:8px}
+.puntos li::before{content:"✓";color:var(--salvia);font-weight:700}
+.btn-add{background:var(--bosque);color:var(--crema)}
+.btn-add:disabled{background:#B8B8AC;cursor:not-allowed;transform:none}
+.aviso-demo{font-size:12px;color:var(--gris);margin-top:10px}
+@media(max-width:840px){.ficha{grid-template-columns:1fr}}
+#pg-curso .curso-meta b,#pg-curso .relatora b{color:var(--tinta)}
+#pg-curso .relatora span{color:var(--gris)}
+.curso-card{cursor:pointer}
+.prod{cursor:pointer}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="anuncio">🌿 <b>Envío gratis</b> en compras sobre <b>$40.000</b> a todo Chile · Retiro sin costo en tienda</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" data-ir="home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7A64AC" stroke-width="1.6"><path d="M12 21c-4-3-7-6-7-10a7 7 0 0 1 14 0c0 4-3 7-7 10Z"/><path d="M12 21V8"/><path d="M12 12c1.5-1 3-1 4.5-.4M12 15c-1.5-1-3-1-4.5-.4"/></svg>
+      Kinexia
+    </a>
+    <div class="buscar">
+      <input type="text" placeholder="Busca una esencia, curso o necesidad…" aria-label="Buscar">
+      <button aria-label="Buscar">⌕</button>
+    </div>
+    <nav class="nav-links">
+      <a data-ir="esencias">Esencias</a>
+      <a data-ir="cursos">Cursos</a>
+      <a data-ir="nutricion">Nutrición</a>
+    </nav>
+    <a class="carro" href="#" data-info="Tu carro de compras" aria-label="Carro de compras">🛒<i>0</i></a>
+  </div>
+</header>
+
+<!-- ==================== HOME ==================== -->
+<div class="page activa" id="pg-home">
+
+  <div class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <p class="eyebrow">Desde Chile · Envíos a todo el país</p>
+        <h1>Esencias florales y formación para tu <em>bienestar</em></h1>
+        <p class="lede">Flores de Bach, sistemas florales del mundo y cursos con relatoras certificadas. Encuentra la esencia que tu momento necesita.</p>
+        <div class="cta-row">
+          <button class="btn btn-p" data-ir="esencias">Ver esencias florales</button>
+          <button class="btn btn-s" data-ir="cursos">Cursos en vivo</button>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="frasco f1"><div class="etq"><span>Esencia</span><b>Rescue</b></div></div>
+        <div class="frasco f2"><div class="etq"><span>Flores de Bach</span><b>Mimulus</b><span>15 ml</span></div></div>
+        <div class="frasco f3"><div class="etq"><span>Mochuelo</span><b>Frosty</b></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap necesidad">
+    <h2>Compra según lo que estás viviendo</h2>
+    <div class="chips">
+      <button class="chip" data-ir="esencias"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21c-4-3-7-6-7-10a7 7 0 0 1 14 0c0 4-3 7-7 10Z"/></svg>Ansiedad y estrés</button>
+      <button class="chip" data-ir="esencias"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>Dormir mejor</button>
+      <button class="chip" data-ir="esencias"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3v18M5 10l7-7 7 7"/></svg>Confianza</button>
+      <button class="chip" data-ir="esencias"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21C7 17 4 13.5 4 10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 3.5-3 7-8 11Z"/></svg>Duelo y tristeza</button>
+      <button class="chip" data-ir="nutricion"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>Foco y energía</button>
+      <button class="chip" data-ir="esencias" data-filtro="mochuelo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg>Protección</button>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="titulo">Los tres mundos de Kinexia</h2>
+        <p>Todo lo que hacemos, ordenado para que llegues directo a lo tuyo.</p>
+      </div>
+    </div>
+    <div class="mundos">
+      <a class="mundo m-esencias" data-ir="esencias">
+        <span class="deco">✿</span>
+        <h3>Esencias Florales</h3>
+        <p>Flores de Bach, Mochuelo, sistemas de Australia, América y más.</p>
+        <span class="ir">Explorar →</span>
+      </a>
+      <a class="mundo m-cursos" data-ir="cursos">
+        <span class="deco">❦</span>
+        <h3>Cursos y Talleres</h3>
+        <p>En vivo por Zoom y en la Academia Kinexia, con certificación.</p>
+        <span class="ir">Ver calendario →</span>
+      </a>
+      <a class="mundo m-nutricion" data-ir="nutricion">
+        <span class="deco">☘</span>
+        <h3>Nutrición</h3>
+        <p>Suplementos para el cerebro y el bienestar diario.</p>
+        <span class="ir">Ver productos →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="titulo">Los favoritos de la comunidad</h2>
+        <p>Los más pedidos este mes. Sin códigos raros, sin agotados al principio.</p>
+      </div>
+      <button class="ver-todo" data-ir="esencias">Ver todo el catálogo →</button>
+    </div>
+    <div class="grid-prod" id="grid-home"></div>
+  </section>
+
+  <section class="wrap" style="padding-top:0">
+    <div class="envio-bar">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="6" width="14" height="11" rx="2"/><path d="M15 10h4l3 3v4h-7"/><circle cx="6" cy="19" r="1.8"/><circle cx="18" cy="19" r="1.8"/></svg>Envío gratis sobre $40.000</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z"/></svg>Pago seguro con Webpay, Khipu y Flow</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20l1-5.2a8.4 8.4 0 1 1 17-3.3Z"/></svg>Asesoría por WhatsApp antes de comprar</div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="titulo">Próximo curso en vivo</h2>
+        <p>Fechas siempre vigentes. Cuando un curso termina, queda disponible su grabación.</p>
+      </div>
+      <button class="ver-todo" data-ir="cursos">Ver todos los cursos →</button>
+    </div>
+    <div class="curso">
+      <div class="curso-video" role="button" data-curso="c0" aria-label="Ver detalle del curso">
+        <div class="play"></div>
+        <p class="nota-video">Video de presentación · 2 min con la relatora</p>
+      </div>
+      <div class="curso-info">
+        <span class="eyebrow">En vivo por Zoom · Cupos limitados</span>
+        <h3>Formación en Flores de Bach</h3>
+        <p>Aprende el sistema completo de 38 esencias, cómo entrevistarlas y preparar fórmulas personalizadas. Incluye certificado y material descargable.</p>
+        <div class="curso-meta">
+          <span><b>Inicio:</b> 10 de agosto</span>
+          <span><b>Duración:</b> 8 sesiones</span>
+          <span><b>Horario:</b> Lunes 20:00</span>
+        </div>
+        <div class="relatora">
+          <div class="avatar">S</div>
+          <span><b>Sofía Vera</b>Terapeuta floral · La Consulta de la Sofi en YouTube</span>
+        </div>
+        <button class="btn btn-p" data-curso="c0">Inscribirme · desde $200.000</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="titulo">Lo que dice la comunidad</h2>
+        <p>Reseñas reales pedidas por WhatsApp después de cada compra.</p>
+      </div>
+    </div>
+    <div class="resenas">
+      <div class="resena">
+        <div class="estrellas">★★★★★</div>
+        <p>"El kit de protección llegó en dos días a Valparaíso, hermoso el empaque y la carta escrita a mano."</p>
+        <footer>Carolina M.<span>Compra verificada · Kit de Protección</span></footer>
+      </div>
+      <div class="resena">
+        <div class="estrellas">★★★★★</div>
+        <p>"Hice la formación de Flores de Bach con la Sofi y fue un antes y un después. Las clases quedan grabadas."</p>
+        <footer>Andrea T.<span>Compra verificada · Formación Flores de Bach</span></footer>
+      </div>
+      <div class="resena">
+        <div class="estrellas">★★★★★</div>
+        <p>"Pregunté por WhatsApp qué esencia me servía y me armaron una fórmula personalizada. Atención de otro nivel."</p>
+        <footer>Rodrigo P.<span>Compra verificada · Fórmula personalizada</span></footer>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== ESENCIAS ==================== -->
+<div class="page" id="pg-esencias">
+  <div class="wrap cab-cat">
+    <p class="miga"><a data-ir="home">Inicio</a> / Esencias Florales</p>
+    <h1>Esencias Florales</h1>
+    <p class="desc">Sistemas florales del mundo, seleccionados y preparados con dedicación. Si no sabes por dónde partir, escríbenos por WhatsApp y te ayudamos a elegir la esencia para tu momento.</p>
+    <div class="filtros-cat" id="filtros-esencias"></div>
+    <div class="grid-prod" id="grid-esencias"></div>
+    <div class="nota-cat">
+      <span>🌿</span>
+      <div><b>¿Primera vez con esencias florales?</b>Cada ficha explica para qué momento sirve cada flor, en lenguaje simple. Y si prefieres una fórmula armada para ti, pídela por WhatsApp: es sin costo adicional.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CURSOS ==================== -->
+<div class="page" id="pg-cursos">
+  <div class="wrap cab-cat">
+    <p class="miga"><a data-ir="home">Inicio</a> / Cursos y Talleres</p>
+    <h1>Cursos y Talleres</h1>
+    <p class="desc">En vivo por Zoom o a tu ritmo en la Academia Kinexia. Todos con certificado de participación, y las clases en vivo quedan grabadas para que no pierdas ninguna sesión.</p>
+    <div class="filtros-cat" id="filtros-cursos"></div>
+    <div class="lista-cursos" id="lista-cursos"></div>
+  </div>
+</div>
+
+<!-- ==================== NUTRICIÓN ==================== -->
+<div class="page" id="pg-nutricion">
+  <div class="wrap cab-cat">
+    <p class="miga"><a data-ir="home">Inicio</a> / Nutrición</p>
+    <h1>Nutrición</h1>
+    <p class="desc">Suplementos para el cerebro y el bienestar diario. Marcas seleccionadas, con despacho a todo Chile.</p>
+    <div class="filtros-cat" id="filtros-nutricion"></div>
+    <div class="grid-prod" id="grid-nutricion"></div>
+  </div>
+</div>
+
+<!-- ==================== FICHA PRODUCTO ==================== -->
+<div class="page" id="pg-producto">
+  <div class="wrap">
+    <div class="ficha">
+      <div class="ficha-img" id="f-img"></div>
+      <div class="ficha-info">
+        <p class="miga" id="f-miga"></p>
+        <span class="prod-cat" id="f-cat"></span>
+        <h1 id="f-nom"></h1>
+        <div class="estrellas" id="f-est"></div>
+        <p class="ficha-precio" id="f-precio"></p>
+        <p class="ficha-desc" id="f-desc"></p>
+        <ul class="puntos">
+          <li>Stock en Chile · Despacho en 24–48 h hábiles</li>
+          <li>¿Dudas? Asesoría gratis por WhatsApp antes de comprar</li>
+          <li>Pago seguro con Webpay, Khipu y Flow</li>
+        </ul>
+        <button class="btn btn-add" id="f-btn">Agregar al carro</button>
+        <p class="aviso-demo">Demo: el carro es de utilería, pero en el sitio real acá se compra de verdad 😉</p>
+      </div>
+    </div>
+    <section style="padding-top:14px">
+      <div class="sec-head"><h2 class="titulo">También te puede servir</h2></div>
+      <div class="grid-prod" id="f-rel"></div>
+    </section>
+  </div>
+</div>
+
+<!-- ==================== FICHA CURSO ==================== -->
+<div class="page" id="pg-curso">
+  <div class="wrap cab-cat">
+    <p class="miga"><a data-ir="home">Inicio</a> / <a data-ir="cursos">Cursos y Talleres</a></p>
+    <p style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--lila);margin-bottom:6px" id="c-modo"></p>
+    <h1 id="c-nom"></h1>
+    <p class="desc" id="c-desc"></p>
+    <div class="curso-meta" style="color:var(--gris);margin:18px 0 4px" id="c-det"></div>
+    <div class="relatora" style="margin:12px 0 24px"><div class="avatar" id="c-avatar"></div><span><b id="c-rel"></b></span></div>
+    <button class="btn btn-add" id="c-btn"></button>
+    <p class="aviso-demo">Demo: la inscripción real se conecta después con la pasarela de pago.</p>
+  </div>
+</div>
+
+<!-- ==================== PÁGINA EN CONSTRUCCIÓN (demo) ==================== -->
+<div class="page" id="pg-info">
+  <div class="wrap cab-cat">
+    <p class="miga"><a data-ir="home">Inicio</a> / <span id="i-miga"></span></p>
+    <h1 id="i-nom"></h1>
+    <p class="desc">Esta página existe en el mapa del sitio real, pero en la demo todavía es de utilería. En la versión final acá iría el contenido completo.</p>
+    <div class="nota-cat" style="margin-top:26px">
+      <span>🚧</span>
+      <div><b>Parte de la demo</b>Todo lo que ves es una propuesta de cómo podría quedar kinexia.cl. Nada está conectado aún — pero se puede seguir cliqueando tranquila 😊</div>
+    </div>
+  </div>
+</div>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie-grid">
+      <div>
+        <div class="marca">Kinexia</div>
+        <p>Esencias florales, formación y bienestar desde Chile para el mundo.</p>
+        <div class="pagos">
+          <span class="pago">Webpay</span><span class="pago">Khipu</span><span class="pago">Flow</span><span class="pago">Visa</span><span class="pago">Mastercard</span><span class="pago">Transferencia</span>
+        </div>
+      </div>
+      <div>
+        <h4>Tienda</h4>
+        <ul>
+          <li><a data-ir="esencias">Esencias Florales</a></li>
+          <li><a data-ir="cursos">Cursos y Talleres</a></li>
+          <li><a data-ir="nutricion">Nutrición</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a data-info="Despachos y retiro">Despachos y retiro</a></li>
+          <li><a data-info="Términos y condiciones">Términos y condiciones</a></li>
+          <li><a data-info="Política de privacidad">Política de privacidad</a></li>
+          <li><a data-info="Preguntas frecuentes">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Conversemos</h4>
+        <ul>
+          <li><a data-info="WhatsApp +56 9 6608 7808">WhatsApp +56 9 6608 7808</a></li>
+          <li><a data-info="Escríbenos a ventas@kinexia.cl">ventas@kinexia.cl</a></li>
+          <li><a data-info="Instagram @mundo_kinexia">Instagram @mundo_kinexia</a></li>
+          <li><a data-info="YouTube · La Consulta de la Sofi">YouTube · La Consulta de la Sofi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie-baja">
+      <span>© 2026 Kinexia · Todos los derechos reservados</span>
+      <span><a data-info="Quiénes somos">Quiénes somos</a> · <a data-info="Nuestras relatoras">Nuestras relatoras</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wsp" href="#" id="wsp-btn" aria-label="Abrir chat de Kinexia">
+  <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 3.5 17.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5 0-1.1.2-3.6-.8a12.4 12.4 0 0 1-5.1-4.5c-.4-.6-1.2-1.8-1.2-3.1s.7-2 1-2.2c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.4-.1.7a9 9 0 0 0 1.7 2.1 8.6 8.6 0 0 0 2.4 1.5c.3.1.5.1.7-.1l.7-.9c.2-.3.4-.3.7-.2l2.2 1c.3.2.5.3.6.4 0 .1 0 .6-.2 1.2Z"/></svg>
+</a>
+
+<div class="chat-panel" id="chat" role="dialog" aria-label="Chat de Kinexia" aria-hidden="true" inert>
+  <div class="chat-head">
+    <div class="chat-ava">K</div>
+    <div class="chat-id"><b>Kinexia</b><span>Asistente · demo</span></div>
+    <button class="chat-x" id="chat-x" aria-label="Cerrar chat">✕</button>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-chips" id="chat-chips"></div>
+  <form class="chat-input" id="chat-form">
+    <input id="chat-text" type="text" autocomplete="off" placeholder="Escribe tu mensaje…" aria-label="Escribe tu mensaje">
+    <button type="submit" aria-label="Enviar">➤</button>
+  </form>
+</div>
+
+<span class="demo-badge">Demo · Propuesta de rediseño</span>
+
+<script>
+/* ---------- datos ---------- */
+const ESENCIAS = [
+ {n:"Kit de Protección (3×15ml)", c:"Flores del Mochuelo", f:"mochuelo", p:21000, img:"v1", ico:"🌸", tag:"nuevo", est:5, r:12, d:"Tres esencias del sistema Mochuelo que trabajan juntas cuando el ambiente pesa: límites sanos, calma y arraigo. Formato de 15 ml, ideal para partir."},
+ {n:"Kit de Protección (3×30ml)", c:"Flores del Mochuelo", f:"mochuelo", p:33000, img:"v1", ico:"🌸", est:5, r:4, d:"El mismo kit de protección, en formato grande para tratamientos largos o para compartir en casa."},
+ {n:"Kit Invernus · Fortaleza", c:"Flores del Mochuelo", f:"mochuelo", p:21000, img:"v4", ico:"❄️", est:5, r:5, d:"Para las etapas de repliegue e invierno interior: fortaleza tranquila para atravesar procesos largos sin apagarte."},
+ {n:"Kit Frosty · Autoconfianza", c:"Flores del Mochuelo", f:"mochuelo", p:23000, img:"v4", ico:"⛄", est:5, r:6, d:"Autoconfianza y ánimo liviano para cuando la autocrítica se pone pesada. Uno de los favoritos del sistema Mochuelo."},
+ {n:"Rescue Remedy 15ml", c:"Flores de Bach", f:"bach", p:7500, img:"v2", ico:"🌿", est:5, r:28, d:"El clásico de emergencia de Bach: cinco flores para momentos de susto, impacto o nervios intensos. Para andar trayendo en la cartera."},
+ {n:"Mimulus 15ml", c:"Flores de Bach", f:"bach", p:7500, img:"v2", ico:"🌼", est:5, r:9, d:"Para los miedos con nombre y apellido: hablar en público, ir al dentista, ese llamado que llevas semanas postergando."},
+ {n:"White Chestnut 30ml", c:"Flores de Bach", f:"bach", p:11000, img:"v2", ico:"🌳", est:4, r:7, d:"Cuando la cabeza no para de darle vueltas a lo mismo, especialmente de noche. Ayuda a soltar el pensamiento repetitivo."},
+ {n:"Pansy 15ml", c:"Nueva Generación", f:"ng", p:7500, img:"v1", ico:"💐", est:5, r:3, d:"Del sistema Nueva Generación: apoyo para las defensas y los momentos de baja energía vital."},
+ {n:"Basil 15ml", c:"Nueva Generación", f:"ng", p:7500, img:"v1", ico:"🌱", est:4, r:2, d:"Para integrar cuerpo y emociones cuando andan cada uno por su lado. Sistema Nueva Generación."},
+ {n:"Waratah · Emergencia", c:"Australia y NZ", f:"aus", p:9500, img:"v3", ico:"🌺", est:5, r:8, d:"La esencia australiana para crisis profundas: coraje y fe cuando sientes que tocaste fondo."},
+ {n:"Bush Fuchsia · Claridad", c:"Australia y NZ", f:"aus", p:9500, img:"v3", ico:"🌷", est:5, r:4, d:"Claridad para estudiar, concentrarte y confiar en tu intuición. Muy pedida en época de exámenes."},
+ {n:"Pack Floral Inicio (5 esencias)", c:"Packs Florales", f:"packs", p:34000, img:"v2", ico:"🎁", tag:"oferta", pAnt:38500, est:5, r:11, d:"Cinco esencias esenciales para armar tu primer botiquín floral, con guía de uso incluida. Sale más conveniente que comprarlas por separado."}
+];
+const FILT_ESENCIAS = [["todas","Todas"],["bach","Flores de Bach"],["mochuelo","Mochuelo"],["ng","Nueva Generación"],["aus","Australia y NZ"],["packs","Packs"]];
+
+const NUTRICION = [
+ {n:"Bisglicinato de Magnesio", c:"Bienestar", f:"bienestar", p:12600, img:"v2", ico:"💊", est:5, r:14, d:"La forma de magnesio más amigable con el estómago. Apoya el descanso, los músculos y el sistema nervioso."},
+ {n:"Aceite de Orégano", c:"Bienestar", f:"bienestar", p:10430, pAnt:14900, tag:"oferta", img:"v3", ico:"🌿", est:4, r:9, d:"Apoyo natural para las defensas, en gotas concentradas. Un clásico del botiquín de invierno."},
+ {n:"Berberina", c:"Bienestar", f:"bienestar", p:14600, img:"v3", ico:"🟡", est:5, r:6, d:"Apoyo al metabolismo y a los niveles de azúcar en sangre. Si tomas medicamentos, consulta primero con tu tratante."},
+ {n:"Biotics", c:"Bienestar", f:"bienestar", p:11130, pAnt:15900, tag:"oferta", img:"v2", ico:"🦠", est:4, r:5, d:"Probióticos para una flora intestinal contenta. Y ya sabes: intestino feliz, ánimo feliz."},
+ {n:"Calcio + Magnesio + Vit D3", c:"Bienestar", f:"bienestar", p:5110, pAnt:7300, tag:"oferta", img:"v4", ico:"🦴", est:5, r:7, d:"El trío clásico para huesos y músculos, en una sola cápsula diaria."},
+ {n:"Taurina 1500", c:"Cerebro", f:"cerebro", p:15900, img:"v1", ico:"⚡", est:5, r:4, d:"Aminoácido que apoya el foco y el rendimiento mental, sin la ansiedad que a veces deja el café."},
+ {n:"Creatina Monohidratada 300g", c:"Cerebro", f:"cerebro", p:13600, img:"v1", ico:"💪", est:5, r:10, d:"No es solo para el gimnasio: la creatina también apoya la memoria y la energía cerebral."},
+ {n:"Vitamina C 1000mg Efervescente", c:"Bienestar", f:"bienestar", p:3200, img:"v3", ico:"🍊", est:5, r:12, d:"Efervescente y rica: la vitamina C de todos los días para las defensas."},
+ {n:"Electro Liquid", c:"Bienestar", f:"bienestar", p:5300, img:"v4", ico:"💧", est:4, r:3, d:"Electrolitos en gotas para hidratarte de verdad. Ideal para deporte y días de calor."},
+ {n:"Potasio Citrato", c:"Bienestar", f:"bienestar", p:6885, pAnt:8100, img:"v4", ico:"🧂", est:5, r:1, agotado:true, d:"Apoya la función muscular y la presión arterial. Estamos reponiendo stock — pronto de vuelta."}
+];
+const FILT_NUTRICION = [["todas","Todo"],["cerebro","Para el cerebro"],["bienestar","Bienestar diario"]];
+
+const CURSOS = [
+ {n:"Formación en Flores de Bach", modo:"vivo", dia:"10", mes:"Ago", det:"8 sesiones · Lunes 20:00 · Certificado incluido", rel:"Sofía Vera", p:"desde $200.000", d:"Formación completa en el sistema de 38 esencias del Dr. Bach: aprenderás a reconocer cada flor, hacer entrevistas florales y preparar fórmulas personalizadas para ti y para otros. Las clases quedan grabadas y el certificado se entrega al completar el curso."},
+ {n:"Curso de Meditación", modo:"academia", dia:"▶", mes:"Grabado", det:"A tu ritmo · Acceso inmediato y para siempre", rel:"Academia Kinexia", p:"$35.000", d:"Un curso grabado para partir meditando de verdad: técnicas simples, sesiones guiadas y cero solemnidad. Acceso inmediato y para siempre en la Academia Kinexia."},
+ {n:"Taller: Vivir en Tiempos Líquidos", modo:"vivo", dia:"24", mes:"Ago", det:"Conversaciones sobre el malestar y el cuidado consciente", rel:"Equipo Kinexia", p:"desde $30.000", d:"Un taller de conversación sobre el malestar contemporáneo: ansiedad, exceso de pantallas y cómo cuidarnos en un mundo que no se detiene."},
+ {n:"Practitioner PNL 2027", modo:"vivo", dia:"05", mes:"Sep", det:"Formación completa · Cupos limitados · Certificación internacional", rel:"Kinexia", p:"$1.300.000", d:"Formación completa de Practitioner en Programación Neurolingüística con certificación internacional. Un año de trabajo profundo en comunicación, lenguaje y cambio personal."},
+ {n:"El Camino Interior", modo:"academia", dia:"▶", mes:"Grabado", det:"Crecimiento personal, hábitos y productividad · A tu ritmo", rel:"Academia Kinexia", p:"desde $30.000", d:"Programa grabado de crecimiento personal: hábitos, propósito y productividad amable, a tu ritmo y sin fechas que te persigan."}
+];
+const FILT_CURSOS = [["todos","Todos"],["vivo","En vivo por Zoom"],["academia","Academia · A tu ritmo"]];
+
+/* ids para navegar a fichas */
+const PROD = {};
+ESENCIAS.forEach((d,i)=>{d.id='e'+i; d.pag='esencias'; d.pagNom='Esencias Florales'; PROD[d.id]=d;});
+NUTRICION.forEach((d,i)=>{d.id='n'+i; d.pag='nutricion'; d.pagNom='Nutrición'; PROD[d.id]=d;});
+CURSOS.forEach((c,i)=>c.id='c'+i);
+
+/* ---------- render productos ---------- */
+const CLP = n => "$" + n.toLocaleString("es-CL");
+function cardProd(d){
+  return `<a class="prod ${d.agotado?'sinstock':''}" data-prod="${d.id}">
+    <div class="prod-img ${d.img}">
+      ${d.tag==='oferta'?'<span class="tag oferta">Oferta</span>':''}
+      ${d.tag==='nuevo'?'<span class="tag nuevo">Nuevo</span>':''}
+      ${d.agotado?'<span class="tag agotado">Agotado</span>':''}
+      ${d.ico}
+    </div>
+    <div class="prod-body">
+      <span class="prod-cat">${d.c}</span>
+      <span class="prod-nom">${d.n}</span>
+      <span class="estrellas">${"★".repeat(d.est)}${"☆".repeat(5-d.est)} <span>${d.r} reseña${d.r!==1?'s':''}</span></span>
+      <span class="prod-precio">${CLP(d.p)}${d.pAnt?`<s>${CLP(d.pAnt)}</s>`:''}</span>
+    </div>
+  </a>`;
+}
+function renderGrid(el, datos){
+  // agotados siempre al final
+  const orden=[...datos].sort((a,b)=>(a.agotado?1:0)-(b.agotado?1:0));
+  el.innerHTML = orden.length ? orden.map(cardProd).join('') : '<p class="vacio">No hay productos en esta categoría todavía.</p>';
+}
+function montarFiltros(elBtns, filtros, datos, elGrid, campo='f'){
+  elBtns.innerHTML = filtros.map(([v,l],i)=>`<button class="${i===0?'on':''}" data-v="${v}">${l}</button>`).join('');
+  elBtns.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      elBtns.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      const v=b.dataset.v;
+      renderGrid(elGrid, v==='todas'||v==='todos' ? datos : datos.filter(d=>d[campo]===v));
+    });
+  });
+}
+
+/* home: 4 favoritos, sin agotados */
+document.getElementById('grid-home').innerHTML =
+  [ESENCIAS[0],ESENCIAS[4],NUTRICION[1],ESENCIAS[3]].map(cardProd).join('');
+
+/* esencias */
+renderGrid(document.getElementById('grid-esencias'), ESENCIAS);
+montarFiltros(document.getElementById('filtros-esencias'), FILT_ESENCIAS, ESENCIAS, document.getElementById('grid-esencias'));
+
+/* nutrición */
+renderGrid(document.getElementById('grid-nutricion'), NUTRICION);
+montarFiltros(document.getElementById('filtros-nutricion'), FILT_NUTRICION, NUTRICION, document.getElementById('grid-nutricion'));
+
+/* cursos */
+function cardCurso(c){
+  return `<div class="curso-card" data-curso="${c.id}">
+    <div class="fecha-box ${c.modo==='academia'?'grab':''}"><b>${c.dia}</b><span>${c.mes}</span></div>
+    <div>
+      <p class="modo">${c.modo==='vivo'?'En vivo por Zoom':'Academia Kinexia'}</p>
+      <h3>${c.n}</h3>
+      <p class="det">${c.det} · Relator/a: ${c.rel}</p>
+    </div>
+    <div class="precio-col">
+      <b>${c.p}</b>
+      <button class="btn-mini">${c.modo==='vivo'?'Inscribirme':'Comenzar ahora'}</button>
+    </div>
+  </div>`;
+}
+function renderCursos(filtro){
+  const d = filtro==='todos' ? CURSOS : CURSOS.filter(c=>c.modo===filtro);
+  document.getElementById('lista-cursos').innerHTML = d.map(cardCurso).join('');
+}
+renderCursos('todos');
+const fc = document.getElementById('filtros-cursos');
+fc.innerHTML = FILT_CURSOS.map(([v,l],i)=>`<button class="${i===0?'on':''}" data-v="${v}">${l}</button>`).join('');
+fc.querySelectorAll('button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    fc.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    renderCursos(b.dataset.v);
+  });
+});
+
+/* ---------- fichas ---------- */
+function verProducto(id){
+  const d = PROD[id]; if(!d) return;
+  document.getElementById('f-miga').innerHTML = `<a data-ir="home">Inicio</a> / <a data-ir="${d.pag}">${d.pagNom}</a> / ${d.n}`;
+  const img = document.getElementById('f-img');
+  img.className = 'ficha-img ' + d.img;
+  img.innerHTML =
+    (d.tag==='oferta'?'<span class="tag oferta">Oferta</span>':'') +
+    (d.tag==='nuevo'?'<span class="tag nuevo">Nuevo</span>':'') +
+    (d.agotado?'<span class="tag agotado">Agotado</span>':'') + d.ico;
+  document.getElementById('f-cat').textContent = d.c;
+  document.getElementById('f-nom').textContent = d.n;
+  document.getElementById('f-est').innerHTML = `${"★".repeat(d.est)}${"☆".repeat(5-d.est)} <span>${d.r} reseña${d.r!==1?'s':''}</span>`;
+  document.getElementById('f-precio').innerHTML = CLP(d.p) + (d.pAnt?`<s>${CLP(d.pAnt)}</s>`:'');
+  document.getElementById('f-desc').textContent = d.d;
+  const btn = document.getElementById('f-btn');
+  btn.disabled = !!d.agotado;
+  btn.textContent = d.agotado ? 'Agotado por ahora' : 'Agregar al carro';
+  const lista = d.pag==='esencias' ? ESENCIAS : NUTRICION;
+  const rel = lista.filter(x=>x.id!==d.id && !x.agotado)
+    .sort((a,b)=>(b.f===d.f)-(a.f===d.f)).slice(0,4);
+  document.getElementById('f-rel').innerHTML = rel.map(cardProd).join('');
+  ir('producto');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('aqui', a.dataset.ir===d.pag));
+}
+
+function verCurso(id){
+  const c = CURSOS.find(x=>x.id===id); if(!c) return;
+  document.getElementById('c-modo').textContent = c.modo==='vivo' ? 'En vivo por Zoom · Cupos limitados' : 'Academia Kinexia · A tu ritmo';
+  document.getElementById('c-nom').textContent = c.n;
+  document.getElementById('c-desc').textContent = c.d;
+  document.getElementById('c-det').innerHTML = `<span>${c.modo==='vivo'?`<b>Inicio:</b> ${c.dia} ${c.mes} · `:'<b>Grabado</b> · '}${c.det}</span>`;
+  document.getElementById('c-avatar').textContent = c.rel[0];
+  document.getElementById('c-rel').textContent = c.rel;
+  document.getElementById('c-btn').textContent = `${c.modo==='vivo'?'Inscribirme':'Comenzar ahora'} · ${c.p}`;
+  ir('curso');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('aqui', a.dataset.ir==='cursos'));
+}
+
+function verInfo(nombre){
+  document.getElementById('i-miga').textContent = nombre;
+  document.getElementById('i-nom').textContent = nombre;
+  ir('info');
+}
+
+/* ---------- router ---------- */
+function ir(pagina, filtro){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('activa'));
+  const dest = document.getElementById('pg-'+pagina);
+  (dest || document.getElementById('pg-home')).classList.add('activa');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('aqui', a.dataset.ir===pagina));
+  if(filtro && pagina==='esencias'){
+    const btn = document.querySelector(`#filtros-esencias button[data-v="${filtro}"]`);
+    if(btn) btn.click();
+  }
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+let carro = 0;
+document.addEventListener('click', e=>{
+  const add = e.target.closest('#f-btn,#c-btn');
+  if(add && !add.disabled){
+    carro++;
+    document.querySelector('.carro i').textContent = carro;
+    const orig = add.textContent;
+    add.textContent = 'Agregado ✓ (demo)';
+    setTimeout(()=>{ add.textContent = orig; }, 1600);
+    return;
+  }
+  const p = e.target.closest('[data-prod]');
+  if(p){ e.preventDefault(); verProducto(p.dataset.prod); return; }
+  const c = e.target.closest('[data-curso]');
+  if(c){ e.preventDefault(); verCurso(c.dataset.curso); return; }
+  const inf = e.target.closest('[data-info]');
+  if(inf){ e.preventDefault(); verInfo(inf.dataset.info); return; }
+  const t = e.target.closest('[data-ir]');
+  if(!t) return;
+  e.preventDefault();
+  ir(t.dataset.ir, t.dataset.filtro);
+});
+
+/* ============================================================
+   AGENTE KINEXIA — demo guionado
+   COSTURA para IA real: para conectar RelevanceAI, la API de
+   Claude o WhatsApp Business, reemplazar SOLO el cuerpo de
+   responderAgente() por un fetch al backend. Debe devolver
+   {text, chips}. La UI (abrir/cerrar, burbujas, typing) no cambia.
+   Ej. futuro:
+     async function responderAgente(texto){
+       const r = await fetch(API_URL, {method:'POST', body: JSON.stringify({texto})});
+       const d = await r.json();
+       return {text: d.respuesta, chips: d.chips || menuChips()};
+     }
+   ============================================================ */
+const WSP_REAL = 'https://wa.me/56966087808';
+const menuChips = () => ([
+  {t:'🌸 ¿Qué esencia me sirve?', msg:'elegir esencia'},
+  {t:'🚚 Envíos', msg:'envios'},
+  {t:'📅 Cursos', msg:'cursos'},
+  {t:'💳 Pagos', msg:'pagos'},
+  {t:'💬 Hablar con una persona', msg:'humano'}
+]);
+const menuInicial = txt => ({text:txt, chips:menuChips()});
+
+/* recomendación de producto real (usa la data y precios ya cargados) */
+function rec(id, motivo){
+  const d = PROD[id];
+  return {
+    text:`Para <b>${motivo}</b> te recomiendo <b>${d.n}</b> — ${CLP(d.p)}.\n${d.d}`,
+    chips:[{t:`Ver ${d.n} →`, prod:id}, {t:'Otra necesidad', msg:'elegir esencia'}, {t:'Hablar con una persona', msg:'humano'}]
+  };
+}
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+
+function responderAgente(texto){
+  const t = norm(texto);
+  const has = (...k) => k.some(x => t.includes(x));
+
+  if(has('elegir esencia','que esencia','cual esencia','recomienda','recomiend','no se cual','no se cuel','ayuda a elegir'))
+    return {text:'¡Genial! Cuéntame qué estás viviendo y te sugiero una esencia 🌿', chips:[
+      {t:'😰 Ansiedad / estrés', msg:'ansiedad'}, {t:'😴 Dormir mejor', msg:'dormir'},
+      {t:'🛡️ Protección', msg:'proteccion'}, {t:'💪 Confianza', msg:'confianza'},
+      {t:'💧 Duelo / tristeza', msg:'duelo'}, {t:'⚡ Foco / energía', msg:'foco'}]};
+  if(has('ansiedad','estres','nervios','angustia','panico','crisis','preocup')) return rec('e4','la ansiedad y los momentos de nervios');
+  if(has('dormir','sueno','insomnio','rumia','vueltas','no para','de noche'))   return rec('e6','cuando la cabeza no para de dar vueltas, sobre todo de noche');
+  if(has('proteccion','proteger','ambiente','envidia','limite','mal rollo'))    return rec('e0','poner límites sanos y protegerte cuando el ambiente pesa');
+  if(has('confianza','autoestima','autocritica','seguridad','inseg'))           return rec('e3','recuperar la autoconfianza cuando la autocrítica pesa');
+  if(has('duelo','tristeza','pena','perdida','luto','fondo','depre'))           return rec('e9','atravesar un duelo o una tristeza profunda');
+  if(has('foco','concentr','estudiar','examen','memoria','energia','claridad')) return rec('e10','claridad para estudiar y concentrarte');
+  if(has('primera vez','no se nada','empezar','partir','botiquin','inicio','no cacho')) return rec('e11','partir con lo esencial');
+
+  if(has('envio','despacho','llega','demora','entrega','retiro','region','envian'))
+    return {text:'🚚 <b>Envío gratis</b> en compras sobre $40.000 a todo Chile. Despacho en 24–48 h hábiles, o <b>retiro sin costo</b> en tienda.', chips:[{t:'Formas de pago', msg:'pagos'}, {t:'Ver esencias', ir:'esencias'}]};
+  if(has('pago','pagar','webpay','transferencia','tarjeta','khipu','flow','cuota','debito','credito'))
+    return {text:'💳 Puedes pagar con <b>Webpay, Khipu, Flow</b>, tarjetas Visa/Mastercard o transferencia. Todo con pago seguro.', chips:[{t:'Envíos', msg:'envios'}, {t:'Ver cursos', ir:'cursos'}]};
+  if(has('curso','taller','formacion','bach','certific','clase','academia','zoom','medita','pnl','aprender'))
+    return {text:'📅 Hay cursos en vivo por Zoom y grabados en la Academia. El próximo en vivo es la <b>Formación en Flores de Bach</b> (inicia el 10 de agosto, con Sofía Vera) y las clases quedan grabadas.', chips:[{t:'Ver todos los cursos →', ir:'cursos'}, {t:'Ver la Formación →', curso:'c0'}]};
+  if(has('precio','cuanto','vale','cuesta','barato','oferta','descuento','valor'))
+    return {text:'Las esencias parten en <b>$7.500</b> (Flores de Bach 15 ml) y los kits desde $21.000. En Nutrición hay varias ofertas. ¿Buscas algo en particular?', chips:[{t:'Elegir esencia', msg:'elegir esencia'}, {t:'Ver ofertas', ir:'nutricion'}]};
+  if(has('humano','persona','hablar con','asesor','contacto','llamar','telefono','ejecutiv','real'))
+    return {text:'¡Claro! Te dejo el WhatsApp real de Kinexia para conversar con el equipo 💬', chips:[{t:'Abrir WhatsApp +56 9 6608 7808', url:WSP_REAL}, {t:'Volver al menú', msg:'hola'}]};
+  if(has('hola','buenas','buenos dias','buenas tardes','buenas noches','hey','holi','que tal'))
+    return menuInicial('¡Hola! 👋 ¿En qué te ayudo hoy?');
+  if(has('gracias','genial','perfecto','buenisimo','vale','ok'))
+    return {text:'¡De nada! 💚 ¿Te ayudo con algo más?', chips:menuChips()};
+
+  return {text:'Uy, en esta demo todavía no sé responder eso 😅. Puedo ayudarte con esencias, envíos, pagos o cursos — o te paso con una persona:', chips:menuChips()};
+}
+
+/* ---------- UI del chat ---------- */
+const chatEl   = document.getElementById('chat');
+const chatBody = document.getElementById('chat-body');
+const chatChips= document.getElementById('chat-chips');
+let saludado = false;
+
+function abrirChat(){
+  chatEl.classList.add('abierto'); chatEl.setAttribute('aria-hidden','false'); chatEl.removeAttribute('inert');
+  if(!saludado){ saludado = true; pintar(menuInicial('¡Hola! 👋 Soy la asistente virtual de Kinexia. Ojo: es una <b>demo</b>, respondo con guiones — pero te muestro cómo se sentiría. ¿En qué te ayudo?')); }
+  document.getElementById('chat-text').focus();
+}
+function cerrarChat(){
+  chatEl.classList.remove('abierto'); chatEl.setAttribute('aria-hidden','true'); chatEl.setAttribute('inert','');
+  document.getElementById('wsp-btn').focus(); // devuelve el foco a la burbuja
+}
+function addMsg(html, quien){
+  const d = document.createElement('div'); d.className = 'msg '+quien;
+  // El texto del usuario NUNCA como HTML (evita self-XSS con <img onerror> etc.).
+  // El del bot es texto propio y controlado (usa <b>); cuando se conecte IA real,
+  // sanitizar su salida antes de pasarla acá.
+  if(quien === 'yo') d.textContent = html; else d.innerHTML = html;
+  chatBody.appendChild(d); chatBody.scrollTop = chatBody.scrollHeight;
+}
+function setChips(chips){
+  chatChips.innerHTML = '';
+  (chips||[]).forEach(c=>{
+    const b = document.createElement('button'); b.textContent = c.t;
+    b.onclick = () => {
+      if(c.prod){ cerrarChat(); verProducto(c.prod); return; }
+      if(c.curso){ cerrarChat(); verCurso(c.curso); return; }
+      if(c.ir){ cerrarChat(); ir(c.ir); return; }
+      if(c.url){ window.open(c.url, '_blank', 'noopener'); return; }
+      if(c.msg){ enviar(c.t, c.msg); }
+    };
+    chatChips.appendChild(b);
+  });
+}
+function pintar(r){ addMsg(r.text, 'bot'); setChips(r.chips); }
+function mostrarTyping(){
+  const d = document.createElement('div'); d.className = 'typing'; d.id = 'chat-typing';
+  d.innerHTML = '<i></i><i></i><i></i>'; chatBody.appendChild(d); chatBody.scrollTop = chatBody.scrollHeight;
+}
+function quitarTyping(){ const t = document.getElementById('chat-typing'); if(t) t.remove(); }
+
+/* enviar: textoVisible = lo que se ve como mensaje del usuario; query = lo que interpreta el agente */
+function enviar(textoVisible, query){
+  addMsg(textoVisible, 'yo'); setChips([]); mostrarTyping();
+  setTimeout(() => {
+    quitarTyping();
+    Promise.resolve()
+      .then(() => responderAgente(query || textoVisible)) // captura throw síncrono
+      .then(r => {
+        if(!r || typeof r.text !== 'string') throw new Error('respuesta inválida');
+        pintar(r);
+      })
+      .catch(() => pintar({ // sin filtrar detalle técnico al cliente
+        text: 'Uy, no pude responder ahora 😅. Intenta de nuevo o te paso con una persona:',
+        chips: menuChips()
+      }));
+  }, 550);
+}
+
+document.getElementById('wsp-btn').addEventListener('click', e => {
+  e.preventDefault();
+  chatEl.classList.contains('abierto') ? cerrarChat() : abrirChat();
+});
+document.getElementById('chat-x').addEventListener('click', cerrarChat);
+chatEl.addEventListener('keydown', e => { if(e.key === 'Escape') cerrarChat(); });
+document.getElementById('chat-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const inp = document.getElementById('chat-text');
+  const v = inp.value.trim(); if(!v) return;
+  inp.value = ''; enviar(v, v);
+});
+</script>
+</body>
+</html>
