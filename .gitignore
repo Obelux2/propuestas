@@ -1,5 +1,10 @@
 # Carpetas de trabajo internas (docs, specs, borradores) — no se publican
 Propuesta Adaba/
-propuestas-sofi/
 .superpowers/
 graphify-out/
+
+# Andamiaje local de Forge / Claude Code
+.claude/
+.forge/
+CLAUDE.md
+example.mcp.json
