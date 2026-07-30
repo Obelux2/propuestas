@@ -20,7 +20,7 @@
       var email = (form.querySelector("input[type=email]").value || "").trim();
       var valido = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
       if (valido) {
-        msg.textContent = "¡Gracias por suscribirte! Te avisaremos de próximos cursos y talleres.";
+        msg.textContent = "Así confirmaríamos tu suscripción en el sitio final. Este formulario es una demostración: no envía ni guarda datos.";
         msg.classList.remove("form-msg-error");
         form.reset();
       } else {
@@ -36,7 +36,7 @@
     { q: "¿Cómo agendo una sesión?",
       a: "¡Muy fácil! Escríbenos a contacto@adaba.cl o entra a adaba.cl/contacto y te coordinamos una hora con una terapeuta certificada. ¿Prefieres atención presencial u online?" },
     { q: "¿Qué cursos tienen?",
-      a: "Tenemos la Formación Adaba para convertirte en terapeuta, la Formación Básica (con acceso inmediato online) y talleres como Colores del Aura ✨ Además hay un Taller Gratuito de Percepción Energética en nuestra Aula Virtual. ¿Te cuento más de alguno?" },
+      a: "Tenemos la Formación Adaba, que enseña la técnica completa; la Formación Básica (con acceso inmediato online) y talleres como Colores del Aura ✨ Además hay un Taller Gratuito de Percepción Energética en nuestra Aula Virtual. ¿Te cuento más de alguno?" },
     { q: "Hablar con una persona",
       a: "¡Por supuesto! Te dejo con el equipo Adaba: escríbenos a contacto@adaba.cl y te respondemos a la brevedad 💜" }
   ];
