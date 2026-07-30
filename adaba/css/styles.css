@@ -132,3 +132,17 @@ input:focus-visible {
   .hero .btn { margin-top: 10px; }
   .section { padding: 48px 0; }
 }
+
+/* ===== Widget WhatsApp simulado ===== */
+.wa-burbuja { position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 58px; height: 58px; border-radius: 50%; border: 0; background: #25D366; color: #fff; font-size: 1.6rem; cursor: pointer; box-shadow: 0 8px 20px rgba(0, 0, 0, .25); }
+.wa-panel { position: fixed; right: 20px; bottom: 90px; z-index: 90; width: min(340px, calc(100vw - 40px)); background: #fff; border-radius: 14px; box-shadow: 0 12px 40px rgba(0, 0, 0, .25); display: none; flex-direction: column; overflow: hidden; }
+.wa-panel.wa-abierto { display: flex; }
+.wa-header { background: #075E54; color: #fff; padding: 12px 14px; }
+.wa-sim { display: block; font-size: .7rem; opacity: .85; }
+.wa-mensajes { background: #ECE5DD; padding: 12px; height: 260px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.wa-msg { max-width: 85%; padding: 8px 12px; border-radius: 10px; font-size: .85rem; line-height: 1.45; }
+.wa-usuario { background: #DCF8C6; align-self: flex-end; }
+.wa-bot { background: #fff; align-self: flex-start; }
+.wa-typing { font-style: italic; opacity: .6; }
+.wa-opciones { padding: 10px; display: flex; flex-wrap: wrap; gap: 6px; background: #f6f6f6; }
+.wa-opcion { border: 1px solid #25D366; color: #075E54; background: #fff; border-radius: 999px; padding: 6px 12px; font-size: .78rem; cursor: pointer; }
