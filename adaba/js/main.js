@@ -32,7 +32,7 @@
 
   var GUION_WA = [
     { q: "¿Qué es la terapia Adaba?",
-      a: "Adaba significa “movimiento de la mente profunda” 🌿 Es una terapia energética creada en Chile por la Dra. Sofía Vera, con más de 20 años de experiencia. Trabaja sobre tu campo energético para ayudarte a sanar desde la primera sesión. ¿Quieres agendar una hora?" },
+      a: "Adaba significa “movimiento de la mente profunda” 🌿 Es una terapia energética creada en Chile por la Dra. Sofía Vera, con más de 20 años de experiencia. Trabaja sobre tu campo energético para acompañar tu proceso. ¿Quieres agendar una hora?" },
     { q: "¿Cómo agendo una sesión?",
       a: "¡Muy fácil! Escríbenos a contacto@adaba.cl o entra a adaba.cl/contacto y te coordinamos una hora con una terapeuta certificada. ¿Prefieres atención presencial u online?" },
     { q: "¿Qué cursos tienen?",
@@ -53,7 +53,7 @@
     panel.className = "wa-panel";
     panel.innerHTML =
       '<div class="wa-header"><strong>Adaba · Asistente</strong>' +
-      '<span class="wa-sim">Simulación — así respondería el agente IA de la Fase 2</span></div>' +
+      '<span class="wa-sim">Simulación: así respondería el agente IA de la Fase 2</span></div>' +
       '<div class="wa-mensajes" role="log" aria-live="polite" aria-atomic="false"></div>' +
       '<div class="wa-opciones"></div>';
 
