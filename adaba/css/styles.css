@@ -96,6 +96,7 @@ input:focus-visible {
 .card { background: #fff; border: 1px solid #eae6dd; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
 .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(29, 28, 68, .14); }
 .card-img { aspect-ratio: 16/9; object-fit: cover; width: 100%; }
+.card-img-cuadrada { aspect-ratio: 1/1; }
 .card .card-body { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .card .card-body h3 { margin-top: 2px; }
 .card .card-body .btn-link { margin-top: auto; padding-left: 0; }
