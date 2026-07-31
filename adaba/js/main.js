@@ -34,7 +34,7 @@
     { q: "¿Qué es la terapia Adaba?",
       a: "Adaba significa “movimiento de la mente profunda” 🌿 Es una terapia energética creada en Chile por la Dra. Sofía Vera, con más de 20 años de experiencia. Trabaja sobre tu campo energético para acompañar tu proceso. ¿Quieres agendar una hora?" },
     { q: "¿Cómo agendo una sesión?",
-      a: "¡Muy fácil! Escríbenos a contacto@adaba.cl o entra a adaba.cl/contacto y te coordinamos una hora con una terapeuta certificada. ¿Prefieres atención presencial u online?" },
+      a: "¡Muy fácil! Escríbenos a contacto@adaba.cl o entra a adaba.cl/contacto y te coordinamos una hora con una terapeuta Adaba. ¿Prefieres atención presencial u online?" },
     { q: "¿Qué cursos tienen?",
       a: "Tenemos la Formación Adaba, que enseña la técnica completa; la Formación Básica (con acceso inmediato online) y talleres como Colores del Aura ✨ Además hay un Taller Gratuito de Percepción Energética en nuestra Aula Virtual. ¿Te cuento más de alguno?" },
     { q: "Hablar con una persona",

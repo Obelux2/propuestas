@@ -17,7 +17,8 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-body); color: var(--texto); background: var(--crema); line-height: 1.6; }
-img { max-width: 100%; display: block; }
+/* height:auto neutraliza el atributo height del HTML, que si no anula el aspect-ratio de .card-img y deforma las fotos */
+img { max-width: 100%; display: block; height: auto; }
 h1, h2, h3 { font-family: var(--font-display); color: var(--indigo); font-weight: 500; line-height: 1.15; }
 h1 { font-size: clamp(2rem, 4.5vw, 3rem); }
 h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
