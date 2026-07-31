@@ -43,6 +43,7 @@ input:focus-visible {
 .site-nav a:hover { color: var(--magenta); }
 .site-nav a.activo { color: var(--magenta); font-weight: 600; }
 .site-nav .deshabilitado { color: #6f6c85; cursor: help; font-size: .95rem; }
+.site-nav .deshabilitado em { font-style: normal; font-size: .7rem; letter-spacing: 1px; text-transform: uppercase; color: var(--magenta); margin-left: 4px; }
 .nav-cta { background: var(--indigo); color: #fff !important; padding: 9px 18px; border-radius: 999px; transition: background .15s ease, transform .15s ease; }
 .nav-cta:hover { background: var(--magenta); transform: translateY(-1px); }
 .nav-toggle { display: none; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; background: none; border: 0; font-size: 1.6rem; color: var(--indigo); cursor: pointer; line-height: 1; transition: color .15s ease; }
