@@ -104,22 +104,27 @@
 <!-- ============================ TOKENS ============================ -->
 <section class="doc" id="tokens">
   <h2>1 · Tokens de color</h2>
-  <p class="doc-desc">Dos capas de variables CSS. Arriba, la paleta de marca: fija en los tres estilos. Abajo, los tokens de rol: los que de verdad usan los componentes, y que cada estilo redefine bajo <code>[data-estilo]</code>. Ver también la sección 16, "Los tres estilos".</p>
+  <p class="doc-desc">Tres capas de variables CSS. Primero, los dos tokens de marca genuinamente fijos en los tres estilos. Segundo, tokens heredados sin uso actual. Tercero, los tokens de rol: los que de verdad usan los componentes, y que cada estilo redefine bajo <code>[data-estilo]</code>. Ver también la sección 16, "Los tres estilos".</p>
 
+  <p class="doc-caso">Marca — fijos en los 3 estilos</p>
   <div class="doc-swatches">
-    <div class="doc-swatch"><i style="background: var(--indigo-noche)"></i><span><b>--indigo-noche</b>#1d1c44 · footer, extremo del gradiente del hero</span></div>
-    <div class="doc-swatch"><i style="background: var(--indigo)"></i><span><b>--indigo</b>#2b2a5e · títulos, estructura, CTA del nav</span></div>
-    <div class="doc-swatch"><i style="background: var(--magenta)"></i><span><b>--magenta</b>#c02485 · CTA primario, links, section-label</span></div>
-    <div class="doc-swatch"><i style="background: var(--magenta-claro)"></i><span><b>--magenta-claro</b>#e84fa9 · acento sobre fondo oscuro, foco</span></div>
-    <div class="doc-swatch"><i style="background: var(--crema); box-shadow: inset 0 0 0 1px #eae6dd"></i><span><b>--crema</b>#fbfaf7 · fondo del cuerpo</span></div>
-    <div class="doc-swatch"><i style="background: var(--niebla)"></i><span><b>--niebla</b>#eef3f2 · secciones alternas</span></div>
-    <div class="doc-swatch"><i style="background: var(--texto)"></i><span><b>--texto</b>#33323d · cuerpo</span></div>
+    <div class="doc-swatch"><i style="background: var(--magenta)"></i><span><b>--magenta</b>#c02485 · mismo valor que <code>--acento</code> en el estilo C, aunque el CSS no los conecta con <code>var()</code></span></div>
+    <div class="doc-swatch"><i style="background: var(--magenta-claro)"></i><span><b>--magenta-claro</b>#e84fa9 · mismo valor que <code>--acento-legible</code> en los estilos B y C</span></div>
   </div>
+
+  <p class="doc-caso" style="margin-top:22px">Heredados — sin una sola referencia en styles.css fuera de su propia declaración en :root</p>
+  <div class="doc-swatches">
+    <div class="doc-swatch"><i style="background: var(--indigo-noche)"></i><span><b>--indigo-noche</b>#1d1c44 · no alimenta ningún componente hoy</span></div>
+    <div class="doc-swatch"><i style="background: var(--indigo)"></i><span><b>--indigo</b>#2b2a5e · no alimenta ningún componente hoy</span></div>
+    <div class="doc-swatch"><i style="background: var(--crema); box-shadow: inset 0 0 0 1px #eae6dd"></i><span><b>--crema</b>#fbfaf7 · no alimenta ningún componente hoy</span></div>
+    <div class="doc-swatch"><i style="background: var(--niebla)"></i><span><b>--niebla</b>#eef3f2 · no alimenta ningún componente hoy</span></div>
+  </div>
+  <p class="doc-nota">Estos cuatro no se eliminan del CSS — quedan de referencia — pero no son parte activa del design system: ningún selector en <code>styles.css</code> los usa fuera de su propia línea en <code>:root</code>.</p>
 
   <div class="doc-meta">
     <div><dt>Cuándo</dt><dd>Siempre. Cualquier color nuevo se escribe como <code>var(--rol)</code>, nunca como <code>var(--magenta)</code> ni hex directo.</dd></div>
     <div><dt>Cuándo no</dt><dd>Nunca hex directo en un componente nuevo. Magenta jamás como fondo extenso: es acento, no superficie.</dd></div>
-    <div><dt>Otros tokens</dt><dd><code>--radius</code>, <code>--sombra</code> / <code>--sombra-hover</code>, <code>--font-display</code>, <code>--font-body</code> — todos varían por estilo salvo las fuentes.</dd></div>
+    <div><dt>Otros tokens</dt><dd><code>--radius</code>, <code>--sombra</code> / <code>--sombra-hover</code>, <code>--font-display</code>, <code>--font-body</code> — todos varían por estilo salvo las fuentes. <code>--texto</code> es un token de ROL (cambia en los 3 estilos), no de marca — ver la tabla abajo.</dd></div>
   </div>
 
   <p class="doc-nota"><code>--acento</code> y <code>--acento-legible</code> no son el mismo magenta. <code>--acento</code> es el magenta como FONDO (<code>.btn-primary</code>, el hover del CTA del nav). <code>--acento-legible</code> es el magenta como TEXTO o BORDE (links, <code>.section-label</code>, <code>.badge</code>). Están separados porque el magenta de marca (<code>#c02485</code>) apenas llega a 2.9:1 sobre las superficies oscuras del estilo B — no pasa el mínimo AA de 4.5:1 — así que el estilo B aclara <code>--acento-legible</code> a <code>#e84fa9</code> (5.27:1) y deja el magenta de marca como fondo de CTA, donde el texto blanco encima sí llega a 5.5:1. Usar <code>--acento</code> como color de texto puede dejarlo poco legible en el estilo B.</p>

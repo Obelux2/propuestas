@@ -68,7 +68,7 @@
   --superficie: #fff;
   --titulo: #3c4a43;
   --texto: #363b36;
-  --texto-suave: #6b7065;
+  --texto-suave: #666b60;
   --borde: #e6e0d4;
   --borde-sutil: rgba(60, 74, 67, .14);
   --borde-input: #d5cec0;
@@ -152,6 +152,7 @@ input:focus-visible {
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--header-fondo); backdrop-filter: blur(8px); border-bottom: 1px solid var(--borde); }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .site-header .logo img { height: 44px; width: auto; }
+[data-estilo="b"] .site-header .logo img { content: url("../img/logo-adaba-blanco.png"); }
 .site-nav { display: flex; gap: 22px; align-items: center; }
 .site-nav a { color: var(--titulo); text-decoration: none; font-size: .95rem; transition: color .15s ease; }
 .site-nav a:hover { color: var(--acento-legible); }
@@ -206,6 +207,7 @@ input:focus-visible {
 .section { padding: 72px 0; }
 .section-alt { background: var(--fondo-alterno); }
 .section-label { font-size: .75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--acento-legible); font-weight: 600; margin-bottom: 10px; }
+.page-hero .section-label { color: var(--hero-acento); }
 .section h2 { margin-bottom: 18px; }
 .section > .container > p { max-width: 68ch; }
 
@@ -280,7 +282,7 @@ input:focus-visible {
 
 /* ===== Widget WhatsApp simulado ===== */
 .wa-burbuja { position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 58px; height: 58px; border-radius: 50%; border: 0; background: #25D366; color: #fff; font-size: 1.6rem; cursor: pointer; box-shadow: 0 8px 20px rgba(0, 0, 0, .25); }
-.wa-panel { position: fixed; right: 20px; bottom: 90px; z-index: 90; width: min(340px, calc(100vw - 40px)); background: #fff; border-radius: 14px; box-shadow: 0 12px 40px rgba(0, 0, 0, .25); display: none; flex-direction: column; overflow: hidden; }
+.wa-panel { position: fixed; right: 20px; bottom: 90px; z-index: 90; width: min(340px, calc(100vw - 40px)); background: #fff; color: #33323d; border-radius: 14px; box-shadow: 0 12px 40px rgba(0, 0, 0, .25); display: none; flex-direction: column; overflow: hidden; }
 .wa-panel.wa-abierto { display: flex; }
 .wa-header { background: #075E54; color: #fff; padding: 12px 14px; }
 .wa-sim { display: block; font-size: .7rem; opacity: .85; }

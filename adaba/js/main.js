@@ -13,7 +13,7 @@
     for (var i = 0; i < botones.length; i++) {
       botones[i].setAttribute("aria-pressed", botones[i].dataset.estiloSet === id ? "true" : "false");
     }
-    try { localStorage.setItem("adaba-estilo", id); } catch (e) { /* modo privado: se ignora */ }
+    try { sessionStorage.setItem("adaba-estilo", id); } catch (e) { /* modo privado: se ignora */ }
   }
 
   function initEstilo() {
@@ -21,7 +21,7 @@
     if (document.documentElement.hasAttribute("data-estilo-fijo")) return;
 
     var guardado = null;
-    try { guardado = localStorage.getItem("adaba-estilo"); } catch (e) { guardado = null; }
+    try { guardado = sessionStorage.getItem("adaba-estilo"); } catch (e) { guardado = null; }
     if (guardado && ESTILOS.indexOf(guardado) !== -1) aplicarEstilo(guardado);
 
     var botones = document.querySelectorAll("[data-estilo-set]");
