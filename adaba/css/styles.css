@@ -154,12 +154,12 @@ input:focus-visible {
 .site-header .logo img { height: 44px; width: auto; }
 [data-estilo="b"] .site-header .logo img { content: url("../img/logo-adaba-blanco.png"); }
 .site-nav { display: flex; gap: 22px; align-items: center; }
-.site-nav a { color: var(--titulo); text-decoration: none; font-size: .95rem; transition: color .15s ease; }
+.site-nav a { color: var(--titulo); text-decoration: none; font-size: .95rem; transition: color .15s ease; min-height: 44px; display: inline-flex; align-items: center; }
 .site-nav a:hover { color: var(--acento-legible); }
 .site-nav a.activo { color: var(--acento-legible); font-weight: 600; }
 .site-nav .deshabilitado { color: var(--texto-suave); cursor: help; font-size: .95rem; }
 .site-nav .deshabilitado em { font-style: normal; font-size: .7rem; letter-spacing: 1px; text-transform: uppercase; color: var(--acento-legible); margin-left: 4px; }
-.nav-cta { background: var(--pill-fondo); color: var(--pill-texto) !important; padding: 9px 18px; border-radius: 999px; transition: background .15s ease, transform .15s ease; }
+.nav-cta { background: var(--pill-fondo); color: var(--pill-texto) !important; padding: 9px 18px; border-radius: 999px; transition: background .15s ease, transform .15s ease; min-height: 44px; display: inline-flex; align-items: center; }
 .nav-cta:hover { background: var(--acento); transform: translateY(-1px); }
 .nav-toggle { display: none; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; background: none; border: 0; font-size: 1.6rem; color: var(--titulo); cursor: pointer; line-height: 1; transition: color .15s ease; }
 .nav-toggle:hover { color: var(--acento-legible); }
@@ -296,7 +296,7 @@ input:focus-visible {
 .wa-bot { background: #fff; align-self: flex-start; }
 .wa-typing { font-style: italic; opacity: .7; }
 .wa-opciones { padding: 10px; display: flex; flex-wrap: wrap; gap: 6px; background: #f6f6f6; }
-.wa-opcion { border: 1px solid #25D366; color: #075E54; background: #fff; border-radius: 999px; padding: 6px 12px; font-size: .78rem; cursor: pointer; }
+.wa-opcion { border: 1px solid #25D366; color: #075E54; background: #fff; border-radius: 999px; padding: 6px 12px; font-size: .78rem; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; }
 
 /* ===== Selector de estilo (solo demo, no es parte del sitio final) ===== */
 .selector-estilo { background: var(--fondo-alterno); border-bottom: 1px solid var(--borde); padding: 16px 0; }

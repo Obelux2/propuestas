@@ -67,7 +67,7 @@
     { q: "¿Qué cursos tienen?",
       a: "Tenemos la Formación Adaba, que enseña la técnica completa; la Formación Básica (con acceso inmediato online) y talleres como Colores del Aura ✨ Además hay un Taller Gratuito de Percepción Energética en nuestra Aula Virtual. ¿Te cuento más de alguno?" },
     { q: "Hablar con una persona",
-      a: "¡Por supuesto! Te dejo con el equipo Adaba: escríbenos a contacto@adaba.cl y te respondemos a la brevedad 💜" }
+      a: "¡Por supuesto! Te dejo con el equipo Adaba: escríbenos a contacto@adaba.cl para que respondan tu consulta 💜" }
   ];
 
   function initWaWidget() {
@@ -76,10 +76,13 @@
     var burbuja = document.createElement("button");
     burbuja.className = "wa-burbuja";
     burbuja.setAttribute("aria-label", "Abrir chat de WhatsApp (simulación)");
+    burbuja.setAttribute("aria-expanded", "false");
+    burbuja.setAttribute("aria-controls", "wa-panel");
     burbuja.innerHTML = "&#x1F4AC;";
 
     var panel = document.createElement("div");
     panel.className = "wa-panel";
+    panel.id = "wa-panel";
     panel.innerHTML =
       '<div class="wa-header"><strong>Adaba · Asistente</strong>' +
       '<span class="wa-sim">Simulación: así respondería el agente IA de la Fase 2</span></div>' +
@@ -118,6 +121,7 @@
 
     burbuja.addEventListener("click", function () {
       var abierto = panel.classList.toggle("wa-abierto");
+      burbuja.setAttribute("aria-expanded", abierto ? "true" : "false");
       if (abierto && !mensajes.hasChildNodes()) {
         agregar("¡Hola! 👋 Soy el asistente de Adaba. Elige una pregunta para ver cómo respondería.", "wa-bot");
       }
