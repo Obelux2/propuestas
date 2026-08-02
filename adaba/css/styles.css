@@ -296,7 +296,7 @@ input:focus-visible {
 .selector-estilo { background: var(--fondo-alterno); border-bottom: 1px solid var(--borde); padding: 16px 0; }
 .selector-label { font-size: .75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--acento-legible); font-weight: 600; margin-bottom: 10px; }
 .selector-botones { display: flex; flex-wrap: wrap; gap: 8px; }
-.selector-botones button { font-family: var(--font-body); font-size: .9rem; padding: 8px 18px; border-radius: 999px; border: 1.5px solid var(--borde); background: var(--superficie); color: var(--titulo); cursor: pointer; transition: background .15s ease, border-color .15s ease, color .15s ease; }
+.selector-botones button { font-family: var(--font-body); font-size: .9rem; min-height: 44px; padding: 8px 18px; border-radius: 999px; border: 1.5px solid var(--borde); background: var(--superficie); color: var(--titulo); cursor: pointer; transition: background .15s ease, border-color .15s ease, color .15s ease; }
 .selector-botones button:hover { border-color: var(--acento); }
 .selector-botones button[aria-pressed="true"] { background: var(--acento); border-color: var(--acento); color: var(--acento-texto); }
 .selector-estilo .nota-demo { margin-top: 10px; margin-bottom: 0; }
