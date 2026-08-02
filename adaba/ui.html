@@ -614,7 +614,7 @@
     </div>
   </div>
 
-  <p class="doc-nota" style="margin-top:16px">Cómo se prueban: el botón <code>data-estilo-set</code> de la home escribe el atributo <code>data-estilo</code> en <code>&lt;html&gt;</code> y lo guarda en <code>localStorage</code> (<code>adaba-estilo</code>), así que la elección viaja entre páginas. <code>propuesta.html</code> fija su propio estilo con <code>data-estilo-fijo</code> y no se ve afectada por el selector.</p>
+  <p class="doc-nota" style="margin-top:16px">Cómo se prueban: el botón <code>data-estilo-set</code> de la home escribe el atributo <code>data-estilo</code> en <code>&lt;html&gt;</code> y lo guarda en <code>sessionStorage</code> (<code>adaba-estilo</code>), así que la elección viaja entre páginas y se olvida al cerrar la pestaña — cada visita nueva arranca en el estilo C, que es el recomendado. Un script inline en el <code>&lt;head&gt;</code> de las cuatro páginas del demo lo aplica antes del primer pintado, para que no haya destello del estilo anterior al navegar. <code>propuesta.html</code> y esta misma página fijan su estilo con <code>data-estilo-fijo</code> y no se ven afectadas por el selector.</p>
 </section>
 
 <div class="doc" style="text-align:center; padding-bottom: 56px">
