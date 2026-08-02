@@ -1,6 +1,35 @@
 (function () {
   "use strict";
 
+  var ESTILOS = ["c", "a", "b"];
+
+  function aplicarEstilo(id) {
+    if (id === "c") {
+      delete document.documentElement.dataset.estilo;
+    } else {
+      document.documentElement.dataset.estilo = id;
+    }
+    var botones = document.querySelectorAll("[data-estilo-set]");
+    for (var i = 0; i < botones.length; i++) {
+      botones[i].setAttribute("aria-pressed", botones[i].dataset.estiloSet === id ? "true" : "false");
+    }
+    try { localStorage.setItem("adaba-estilo", id); } catch (e) { /* modo privado: se ignora */ }
+  }
+
+  function initEstilo() {
+    // Una pagina puede fijar su estilo en el HTML (propuesta.html): en ese caso no se toca.
+    if (document.documentElement.hasAttribute("data-estilo-fijo")) return;
+
+    var guardado = null;
+    try { guardado = localStorage.getItem("adaba-estilo"); } catch (e) { guardado = null; }
+    if (guardado && ESTILOS.indexOf(guardado) !== -1) aplicarEstilo(guardado);
+
+    var botones = document.querySelectorAll("[data-estilo-set]");
+    for (var i = 0; i < botones.length; i++) {
+      botones[i].addEventListener("click", function () { aplicarEstilo(this.dataset.estiloSet); });
+    }
+  }
+
   function initNav() {
     var toggle = document.querySelector(".nav-toggle");
     var nav = document.querySelector(".site-nav");
@@ -99,6 +128,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    initEstilo();
     initNav();
     initNewsletter();
     initWaWidget();
