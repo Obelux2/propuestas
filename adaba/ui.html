@@ -98,12 +98,13 @@
   <a href="#estados">Estados y errores</a>
   <a href="#motion">Motion</a>
   <a href="#paginas">Anatomía de página</a>
+  <a href="#estilos">Los tres estilos</a>
 </nav>
 
 <!-- ============================ TOKENS ============================ -->
 <section class="doc" id="tokens">
   <h2>1 · Tokens de color</h2>
-  <p class="doc-desc">Siete variables CSS en <code>:root</code>. Todo color del sitio sale de aquí. Los hex sueltos que quedan en el stylesheet están listados abajo como deuda conocida, no como permiso.</p>
+  <p class="doc-desc">Dos capas de variables CSS. Arriba, la paleta de marca: fija en los tres estilos. Abajo, los tokens de rol: los que de verdad usan los componentes, y que cada estilo redefine bajo <code>[data-estilo]</code>. Ver también la sección 16, "Los tres estilos".</p>
 
   <div class="doc-swatches">
     <div class="doc-swatch"><i style="background: var(--indigo-noche)"></i><span><b>--indigo-noche</b>#1d1c44 · footer, extremo del gradiente del hero</span></div>
@@ -116,22 +117,38 @@
   </div>
 
   <div class="doc-meta">
-    <div><dt>Cuándo</dt><dd>Siempre. Cualquier color nuevo se escribe como <code>var(--token)</code>.</dd></div>
+    <div><dt>Cuándo</dt><dd>Siempre. Cualquier color nuevo se escribe como <code>var(--rol)</code>, nunca como <code>var(--magenta)</code> ni hex directo.</dd></div>
     <div><dt>Cuándo no</dt><dd>Nunca hex directo en un componente nuevo. Magenta jamás como fondo extenso: es acento, no superficie.</dd></div>
-    <div><dt>Otros tokens</dt><dd><code>--radius</code> 16px · <code>--shadow</code> 0 6px 24px rgba(29,28,68,.08) · <code>--font-display</code> · <code>--font-body</code></dd></div>
+    <div><dt>Otros tokens</dt><dd><code>--radius</code>, <code>--sombra</code> / <code>--sombra-hover</code>, <code>--font-display</code>, <code>--font-body</code> — todos varían por estilo salvo las fuentes.</dd></div>
   </div>
+
+  <p class="doc-nota"><code>--acento</code> y <code>--acento-legible</code> no son el mismo magenta. <code>--acento</code> es el magenta como FONDO (<code>.btn-primary</code>, el hover del CTA del nav). <code>--acento-legible</code> es el magenta como TEXTO o BORDE (links, <code>.section-label</code>, <code>.badge</code>). Están separados porque el magenta de marca (<code>#c02485</code>) apenas llega a 2.9:1 sobre las superficies oscuras del estilo B — no pasa el mínimo AA de 4.5:1 — así que el estilo B aclara <code>--acento-legible</code> a <code>#e84fa9</code> (5.27:1) y deja el magenta de marca como fondo de CTA, donde el texto blanco encima sí llega a 5.5:1. Usar <code>--acento</code> como color de texto puede dejarlo poco legible en el estilo B.</p>
 
   <div class="doc-scroll">
   <table class="doc-tabla">
-    <caption class="doc-caso" style="text-align:left; padding: 12px 14px 0">Hex fuera de tokens que hoy viven en styles.css</caption>
-    <thead><tr><th>Valor</th><th>Dónde</th><th>Qué es</th></tr></thead>
+    <caption class="doc-caso" style="text-align:left; padding: 12px 14px 0">Tokens de rol — cada estilo los redefine</caption>
+    <thead><tr><th>Token</th><th>Qué es</th><th>Dónde</th></tr></thead>
     <tbody>
-      <tr><td><code>#a81e74</code></td><td><code>.btn-primary:hover</code></td><td>Magenta oscurecido del hover. Candidato a <code>--magenta-oscuro</code>.</td></tr>
-      <tr><td><code>#eae6dd</code></td><td>bordes de <code>.card</code>, <code>.site-header</code></td><td>Borde cálido neutro. Candidato a <code>--borde</code>.</td></tr>
-      <tr><td><code>#6f6c85</code></td><td><code>.deshabilitado</code>, <code>.nota-demo</code></td><td>Texto secundario. Candidato a <code>--texto-suave</code>.</td></tr>
-      <tr><td><code>#a3244f</code></td><td><code>.form-msg-error</code></td><td>Rojo de error, único semántico del sistema.</td></tr>
-      <tr><td><code>#c9c6e8</code>, <code>#ece9f8</code></td><td>texto sobre índigo (hero, footer)</td><td>Lavandas de contraste sobre fondo oscuro.</td></tr>
-      <tr><td><code>#25D366</code>, <code>#075E54</code>, <code>#ECE5DD</code>, <code>#DCF8C6</code></td><td><code>.wa-*</code></td><td>Fuera de paleta a propósito: imitan WhatsApp. No usar en ningún otro componente.</td></tr>
+      <tr><td><code>--fondo</code></td><td>Fondo del cuerpo</td><td><code>body</code></td></tr>
+      <tr><td><code>--fondo-alterno</code></td><td>Secciones alternas</td><td><code>.section-alt</code></td></tr>
+      <tr><td><code>--superficie</code></td><td>Fondo de tarjetas, testimonios e inputs</td><td><code>.card</code>, <code>.testimonio</code></td></tr>
+      <tr><td><code>--titulo</code></td><td>Títulos, texto estructural, contadores</td><td><code>h1/h2/h3</code>, <code>.fases li::before</code></td></tr>
+      <tr><td><code>--texto</code></td><td>Cuerpo</td><td><code>body</code></td></tr>
+      <tr><td><code>--texto-suave</code></td><td>Texto secundario y notas de demo</td><td><code>.nota-demo</code>, <code>.deshabilitado</code></td></tr>
+      <tr><td><code>--borde</code></td><td>Bordes de tarjeta y header</td><td><code>.card</code>, <code>.site-header</code></td></tr>
+      <tr><td><code>--borde-sutil</code></td><td>Separadores de listas numeradas</td><td><code>.observaciones li</code>, <code>.fases li</code></td></tr>
+      <tr><td><code>--borde-input</code></td><td>Borde del campo de correo</td><td><code>.newsletter-form input</code></td></tr>
+      <tr><td><code>--acento</code></td><td>Magenta como FONDO — CTA primario, pill del nav al hover. Fijo en los 3 estilos.</td><td><code>.btn-primary</code>, <code>.nav-cta:hover</code></td></tr>
+      <tr><td><code>--acento-legible</code></td><td>Magenta como TEXTO o BORDE — links, labels, badges. No confundir con <code>--acento</code>: ver nota abajo.</td><td><code>.section-label</code>, <code>.badge</code>, <code>a</code></td></tr>
+      <tr><td><code>--acento-oscuro</code></td><td>Hover del CTA primario</td><td><code>.btn-primary:hover</code></td></tr>
+      <tr><td><code>--acento-claro</code></td><td>Foco visible y hover de <code>.btn-link</code></td><td><code>:focus-visible</code>, <code>.btn-link:hover</code></td></tr>
+      <tr><td><code>--acento-texto</code></td><td>Texto sobre <code>--acento</code></td><td><code>.btn-primary</code></td></tr>
+      <tr><td><code>--error</code></td><td>Mensaje de error del formulario</td><td><code>.form-msg-error</code></td></tr>
+      <tr><td><code>--pill-fondo</code> / <code>--pill-texto</code></td><td>Fondo y texto del CTA del nav</td><td><code>.nav-cta</code></td></tr>
+      <tr><td><code>--hero-*</code></td><td>Fondo, título, texto, acento, outline y marca de agua del hero</td><td><code>.hero</code>, <code>.page-hero</code></td></tr>
+      <tr><td><code>--footer-*</code></td><td>Fondo, texto y hover del footer</td><td><code>.site-footer</code></td></tr>
+      <tr><td><code>--sombra</code> / <code>--sombra-hover</code></td><td>Elevación en reposo y al hover</td><td><code>.card</code>, <code>.testimonio</code></td></tr>
+      <tr><td><code>#25D366</code>, <code>#075E54</code>, <code>#ECE5DD</code>, <code>#DCF8C6</code></td><td>Fuera de paleta a propósito: imitan WhatsApp. No usar en ningún otro componente.</td><td><code>.wa-*</code></td></tr>
     </tbody>
   </table>
   </div>
@@ -553,6 +570,46 @@
   </div>
 
   <p class="doc-nota">Regla de jerarquía por página: un solo <code>.btn-primary</code> visible a la vez en el viewport. Si dos secciones seguidas piden acción, la segunda usa <code>.btn-outline</code> o <code>.btn-link</code>.</p>
+</section>
+
+<!-- ============================ LOS TRES ESTILOS ============================ -->
+<section class="doc" id="estilos">
+  <h2>16 · Los tres estilos</h2>
+  <p class="doc-desc">El demo se recorre en tres pieles. Cada una es un bloque de overrides de los tokens de rol de la sección 1, activado con <code>[data-estilo]</code> en <code>&lt;html&gt;</code>. Los componentes no cambian: solo cambian los valores que sus tokens leen.</p>
+
+  <div class="doc-meta">
+    <div><dt>Cuándo</dt><dd>Probar todo componente nuevo en los tres estilos antes de darlo por bueno. El selector de la home (<code>.selector-botones</code>) alterna entre ellos en vivo.</dd></div>
+    <div><dt>Cuándo no</dt><dd>Un componente nunca asume los valores de un solo estilo — por ejemplo, un fondo claro fijo se rompe en el estilo B. Siempre lee el token de rol, nunca el hex.</dd></div>
+    <div><dt>Motion</dt><dd>El cambio de estilo es instantáneo: no hay transición entre valores de <code>--fondo</code>, <code>--superficie</code>, etc. Cambia el atributo <code>data-estilo</code> y el navegador repinta directo.</dd></div>
+  </div>
+
+  <p class="doc-nota">Qué NO varía entre los tres: el contenido, la estructura HTML, los componentes en sí, y el magenta de marca (<code>#c02485</code> / <code>#e84fa9</code>). Qué SÍ varía: las superficies (<code>--fondo</code>, <code>--fondo-alterno</code>, <code>--superficie</code>), el color estructural de los títulos (<code>--titulo</code>), el tratamiento del hero y el footer, y el radio de las esquinas.</p>
+
+  <div class="doc-swatches" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr))">
+    <div style="background: var(--fondo); border: 1px solid var(--borde); border-radius: var(--radius); padding: 20px">
+      <p class="doc-caso">C · Híbrido (por defecto)</p>
+      <p style="font-family: var(--font-display); color: var(--titulo); font-size: 1.1rem; margin-bottom: 10px">Sanar es aprender a vivir bien</p>
+      <a class="btn btn-primary" href="#estilos">Agenda tu sesión</a>
+      <p style="margin-top:10px"><a href="#estilos">Enlace de ejemplo</a></p>
+      <p class="nota-demo" style="margin-top:8px; margin-bottom:0">--fondo #fbfaf7 · --superficie #fff · --titulo #2b2a5e · --acento #c02485 · --acento-legible #c02485 · --radius 16px</p>
+    </div>
+    <div data-estilo="a" style="background: var(--fondo); border: 1px solid var(--borde); border-radius: var(--radius); padding: 20px">
+      <p class="doc-caso">A · Natural luminoso</p>
+      <p style="font-family: var(--font-display); color: var(--titulo); font-size: 1.1rem; margin-bottom: 10px">Sanar es aprender a vivir bien</p>
+      <a class="btn btn-primary" href="#estilos">Agenda tu sesión</a>
+      <p style="margin-top:10px"><a href="#estilos">Enlace de ejemplo</a></p>
+      <p class="nota-demo" style="margin-top:8px; margin-bottom:0">--fondo #faf7f1 · --superficie #fff · --titulo #3c4a43 · --acento #c02485 · --acento-legible #c02485 · --radius 20px</p>
+    </div>
+    <div data-estilo="b" style="background: var(--fondo); border: 1px solid var(--borde); border-radius: var(--radius); padding: 20px">
+      <p class="doc-caso">B · Índigo profundo</p>
+      <p style="font-family: var(--font-display); color: var(--titulo); font-size: 1.1rem; margin-bottom: 10px">Sanar es aprender a vivir bien</p>
+      <a class="btn btn-primary" href="#estilos">Agenda tu sesión</a>
+      <p style="margin-top:10px"><a href="#estilos">Enlace de ejemplo</a></p>
+      <p class="nota-demo" style="margin-top:8px; margin-bottom:0">--fondo #14132e · --superficie #1f1d45 · --titulo #efeaff · --acento #c02485 · --acento-legible #e84fa9 · --radius 12px</p>
+    </div>
+  </div>
+
+  <p class="doc-nota" style="margin-top:16px">Cómo se prueban: el botón <code>data-estilo-set</code> de la home escribe el atributo <code>data-estilo</code> en <code>&lt;html&gt;</code> y lo guarda en <code>localStorage</code> (<code>adaba-estilo</code>), así que la elección viaja entre páginas. <code>propuesta.html</code> fija su propio estilo con <code>data-estilo-fijo</code> y no se ve afectada por el selector.</p>
 </section>
 
 <div class="doc" style="text-align:center; padding-bottom: 56px">
