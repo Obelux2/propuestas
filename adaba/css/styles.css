@@ -30,6 +30,7 @@
   --acento-texto: #fff;
   --error: #a3244f;
   --pill-fondo: #2b2a5e;
+  --pill-texto: #fff;
 
   /* Roles — header, hero y footer */
   --header-fondo: rgba(251, 250, 247, .92);
@@ -86,7 +87,7 @@ input:focus-visible {
 .site-nav a.activo { color: var(--acento); font-weight: 600; }
 .site-nav .deshabilitado { color: var(--texto-suave); cursor: help; font-size: .95rem; }
 .site-nav .deshabilitado em { font-style: normal; font-size: .7rem; letter-spacing: 1px; text-transform: uppercase; color: var(--acento); margin-left: 4px; }
-.nav-cta { background: var(--pill-fondo); color: var(--acento-texto) !important; padding: 9px 18px; border-radius: 999px; transition: background .15s ease, transform .15s ease; }
+.nav-cta { background: var(--pill-fondo); color: var(--pill-texto) !important; padding: 9px 18px; border-radius: 999px; transition: background .15s ease, transform .15s ease; }
 .nav-cta:hover { background: var(--acento); transform: translateY(-1px); }
 .nav-toggle { display: none; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; background: none; border: 0; font-size: 1.6rem; color: var(--titulo); cursor: pointer; line-height: 1; transition: color .15s ease; }
 .nav-toggle:hover { color: var(--acento); }
