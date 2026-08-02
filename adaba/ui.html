@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-estilo-fijo>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -191,7 +191,7 @@
   <p class="doc-desc">Tres variantes, más el CTA del nav. Todas con radio 999px. Una sola acción primaria por pantalla visible.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd><code>--magenta</code> · <code>--indigo</code> · <code>--shadow</code> · <code>--font-body</code></dd></div>
+    <div><dt>Tokens</dt><dd><code>--acento</code> (fondo) · <code>--acento-texto</code> (texto) · <code>--acento-oscuro</code> (hover) · <code>--sombra</code> · <code>--acento-legible</code> en <code>.btn-link</code></dd></div>
     <div><dt>Cuándo</dt><dd><code>.btn-primary</code> para la acción que queremos que ocurra (agendar, inscribirse). <code>.btn-outline</code> para la alternativa. <code>.btn-link</code> para "seguir leyendo".</dd></div>
     <div><dt>Cuándo no</dt><dd>Dos <code>.btn-primary</code> juntos: rompe la jerarquía. <code>.btn-outline</code> sobre crema en un contexto donde ya hay borde de tarjeta: usar <code>.btn-link</code>.</dd></div>
     <div><dt>Motion</dt><dd><code>background</code>, <code>transform</code>, <code>box-shadow</code> · 150ms ease. Hover sube 1px (<code>translateY(-1px)</code>). <code>.btn-link</code> se desplaza 2px a la derecha.</dd></div>
@@ -231,7 +231,7 @@
   <p class="doc-desc">Sticky, translúcido con blur. El ejemplo de abajo es funcional: bajo 840px aparece la hamburguesa y abre el menú de verdad.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd><code>--crema</code> al 92% · <code>--indigo</code> · <code>--magenta</code> · borde <code>#eae6dd</code></dd></div>
+    <div><dt>Tokens</dt><dd><code>--header-fondo</code> · <code>--titulo</code> (links) · <code>--acento-legible</code> (hover/activo) · <code>--pill-fondo</code> / <code>--pill-texto</code> (CTA) · <code>--acento</code> (hover del CTA) · <code>--borde</code></dd></div>
     <div><dt>Cuándo</dt><dd>En todas las páginas del demo, idéntico. <code>.activo</code> marca la página actual.</dd></div>
     <div><dt>Cuándo no</dt><dd>No agregar links al nav sin decidir su página: usar <code>.deshabilitado</code> con <code>&lt;em&gt;pronto&lt;/em&gt;</code> y un <code>title</code> que explique.</dd></div>
     <div><dt>Motion</dt><dd><code>color</code> 150ms en links · <code>background</code> + <code>transform</code> 150ms en <code>.nav-cta</code> · el menú móvil no anima, aparece con <code>display</code> (clase <code>.abierto</code>).</dd></div>
@@ -262,7 +262,7 @@
   <p class="doc-desc">Dos variantes. <code>.hero</code> es el de la home, con marca de agua "V". <code>.page-hero</code> es el compacto de las páginas interiores.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd>Gradiente <code>linear-gradient(160deg, #1d1c44, #2b2a5e 55%, #413a78)</code> · texto <code>#ece9f8</code> · acento <code>--magenta-claro</code></dd></div>
+    <div><dt>Tokens</dt><dd><code>--hero-fondo</code> (gradiente) · <code>--hero-cuerpo</code> (texto) · <code>--hero-titulo</code> (h1) · <code>--hero-acento</code> (énfasis) · <code>--hero-outline</code> / <code>--hero-outline-hover</code> (botón outline) · <code>--page-hero-fondo</code> (hero interior)</dd></div>
     <div><dt>Cuándo</dt><dd><code>.hero</code> solo en la home. <code>.page-hero</code> en Técnica, Escuela, Emporio y Propuesta.</dd></div>
     <div><dt>Cuándo no</dt><dd>Nunca dos heros en una página. La marca de agua "V" no se repite en otras secciones: pierde el efecto.</dd></div>
     <div><dt>Motion</dt><dd>Ninguna. El hero es estático a propósito — nada de parallax ni entradas animadas.</dd></div>
@@ -298,7 +298,7 @@
   <p class="doc-desc">Ritmo vertical del sitio: 72px de padding, 48px en móvil. Las secciones alternan crema y niebla para separar bloques sin dibujar líneas.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd><code>--niebla</code> en <code>.section-alt</code> · <code>--magenta</code> en <code>.section-label</code></dd></div>
+    <div><dt>Tokens</dt><dd><code>--fondo-alterno</code> en <code>.section-alt</code> · <code>--acento-legible</code> en <code>.section-label</code></dd></div>
     <div><dt>Cuándo</dt><dd>Alternar <code>.section</code> y <code>.section .section-alt</code>. El <code>.section-label</code> nombra el tema antes del H2.</dd></div>
     <div><dt>Cuándo no</dt><dd>Dos <code>.section-alt</code> seguidas: el contraste desaparece y se lee como un solo bloque largo.</dd></div>
     <div><dt>Motion</dt><dd>Ninguna. Sin animaciones al scroll.</dd></div>
@@ -328,7 +328,7 @@
   <p class="doc-desc">Una sola variante de tarjeta, con o sin imagen. La grilla se ajusta sola: <code>auto-fill minmax(260px, 1fr)</code>.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd>fondo <code>#fff</code> · borde <code>#eae6dd</code> · <code>--radius</code> · <code>--shadow</code> · badge en <code>--magenta</code></dd></div>
+    <div><dt>Tokens</dt><dd><code>--superficie</code> (fondo) · <code>--borde</code> · <code>--radius</code> · <code>--sombra</code> / <code>--sombra-hover</code> (hover) · <code>--acento-legible</code> (badge)</dd></div>
     <div><dt>Cuándo</dt><dd>Ítems comparables entre sí: cursos, caminos, productos. El <code>.badge</code> categoriza; el <code>.btn-link</code> va al fondo con <code>margin-top: auto</code>.</dd></div>
     <div><dt>Cuándo no</dt><dd>No usar tarjeta para un texto único sin par — eso es una sección. No anidar tarjetas. No poner dos CTA en una tarjeta.</dd></div>
     <div><dt>Motion</dt><dd><code>transform</code> + <code>box-shadow</code> · 200ms ease. Solo levanta si contiene un link: <code>.card:has(a):hover</code>.</dd></div>
@@ -386,7 +386,7 @@
   <p class="doc-desc">Cita en itálica con atribución. Sin comillas decorativas, sin foto, sin estrellas.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd>fondo <code>#fff</code> · <code>--radius</code> · <code>--shadow</code> · atribución en <code>--indigo</code></dd></div>
+    <div><dt>Tokens</dt><dd><code>--superficie</code> (fondo) · <code>--radius</code> · <code>--sombra</code> / <code>--sombra-hover</code> (hover) · <code>--titulo</code> (atribución)</dd></div>
     <div><dt>Cuándo</dt><dd>Palabras textuales de una persona real. Va dentro de <code>.cards-grid</code> cuando hay varios.</dd></div>
     <div><dt>Cuándo no</dt><dd>Nunca con resultados prometidos ni afirmaciones de salud más fuertes que las del propio Adaba. Nunca testimonios inventados en el demo sin marcarlos.</dd></div>
     <div><dt>Motion</dt><dd><code>transform</code> + <code>box-shadow</code> · 200ms ease · sube 2px (más sutil que la tarjeta).</dd></div>
@@ -412,7 +412,7 @@
   <p class="doc-desc">Único formulario del demo. Funciona de verdad aquí abajo: escribe un correo válido y uno inválido para ver los dos mensajes.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd>borde <code>#d8d2c6</code> → <code>--magenta</code> al foco · mensaje en <code>--indigo</code> · error en <code>#a3244f</code></dd></div>
+    <div><dt>Tokens</dt><dd><code>--borde-input</code> → <code>--acento-legible</code> al foco · <code>--titulo</code> (mensaje) · <code>--error</code> (mensaje de error)</dd></div>
     <div><dt>Cuándo</dt><dd>Captura de correo en el footer o en una sección de cierre. Un solo campo.</dd></div>
     <div><dt>Cuándo no</dt><dd>No pedir nombre, teléfono ni consentimientos en el demo: no hay backend y cada campo extra baja la conversión real.</dd></div>
     <div><dt>Motion</dt><dd><code>border-color</code> · 150ms ease al foco. El mensaje aparece sin animación, inmediato.</dd></div>
@@ -449,7 +449,7 @@
   <p class="doc-desc">Exclusivas de <code>propuesta.html</code>. Numeración generada por CSS (<code>counter</code>), sin cajas: la secuencia se lee sola.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd>número en <code>--font-display</code> + <code>--indigo</code> · separador <code>rgba(29,28,68,.12)</code></dd></div>
+    <div><dt>Tokens</dt><dd>número en <code>--font-display</code> + <code>--titulo</code> · separador <code>--borde-sutil</code></dd></div>
     <div><dt>Cuándo</dt><dd><code>.observaciones</code> para el diagnóstico (números 2rem, junto a la captura). <code>.fases</code> para el plan de trabajo (números grandes, apilados).</dd></div>
     <div><dt>Cuándo no</dt><dd>No usarlas para listas sin orden real — para eso basta un <code>&lt;ul&gt;</code>. No numerar a mano en el HTML: el contador lo hace.</dd></div>
     <div><dt>Motion</dt><dd>Ninguna.</dd></div>
@@ -480,7 +480,7 @@
   <p class="doc-desc">Índigo noche, el fondo más oscuro del sitio. Cierra visualmente lo que abre el hero.</p>
 
   <div class="doc-meta">
-    <div><dt>Tokens</dt><dd><code>--indigo-noche</code> · texto <code>#c9c6e8</code> · hover a <code>#fff</code></dd></div>
+    <div><dt>Tokens</dt><dd><code>--footer-fondo</code> · <code>--footer-texto</code> · <code>--footer-hover</code> (hover)</dd></div>
     <div><dt>Cuándo</dt><dd>En todas las páginas, idéntico. Trae 72px de <code>margin-top</code> propio: no agregar espaciado extra antes.</dd></div>
     <div><dt>Cuándo no</dt><dd>No meter formularios largos ni mapas — el footer es cierre, no una sección más.</dd></div>
     <div><dt>Motion</dt><dd><code>color</code> · 150ms ease en los links.</dd></div>
