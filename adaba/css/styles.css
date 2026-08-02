@@ -56,6 +56,72 @@
   --font-body: "Inter", system-ui, sans-serif;
 }
 
+/* ===== Estilo A · Natural luminoso =====
+   Hero claro, estructura en verde pizarra, cremas cálidas. El magenta de marca se mantiene.
+   Referencia: la fotografía natural de los propios videos de Adaba (montañas, brotes, agua). */
+[data-estilo="a"] {
+  --fondo: #faf7f1;
+  --fondo-alterno: #ecf1ec;
+  --superficie: #fff;
+  --titulo: #3c4a43;
+  --texto: #363b36;
+  --texto-suave: #6b7065;
+  --borde: #e6e0d4;
+  --borde-sutil: rgba(60, 74, 67, .14);
+  --borde-input: #d5cec0;
+  --pill-fondo: #3c4a43;
+  --header-fondo: rgba(250, 247, 241, .92);
+  --hero-fondo: linear-gradient(160deg, #f4efe6 0%, #eaf1ec 60%, #e0eae4 100%);
+  --page-hero-fondo: linear-gradient(160deg, #f4efe6, #e0eae4);
+  --hero-cuerpo: #4a544c;
+  --hero-titulo: #3c4a43;
+  --hero-texto: #55605a;
+  --hero-acento: #c02485;
+  --hero-outline: #3c4a43;
+  --hero-outline-hover: rgba(60, 74, 67, .10);
+  --outline-hover: rgba(60, 74, 67, .06);
+  --hero-marca: rgba(60, 74, 67, .05);
+  --footer-fondo: #3c4a43;
+  --footer-texto: #d8ded6;
+  --footer-hover: #fff;
+  --sombra: 0 6px 24px rgba(60, 74, 67, .10);
+  --sombra-hover: 0 12px 32px rgba(60, 74, 67, .16);
+  --radius: 20px;
+}
+
+/* ===== Estilo B · Índigo profundo total =====
+   Todo el sitio sobre fondos oscuros. Más íntimo y contemplativo.
+   El magenta gana presencia porque respira sobre oscuro. */
+[data-estilo="b"] {
+  --fondo: #14132e;
+  --fondo-alterno: #191834;
+  --superficie: #1f1d45;
+  --titulo: #efeaff;
+  --texto: #c9c4e6;
+  --texto-suave: #918bb8;
+  --borde: #322f5e;
+  --borde-sutil: rgba(255, 255, 255, .10);
+  --borde-input: #3d3a6e;
+  --acento-oscuro: #d4359a;
+  --pill-fondo: #3a2f7a;
+  --header-fondo: rgba(20, 19, 46, .92);
+  --hero-fondo: linear-gradient(160deg, #14132e 0%, #241f52 55%, #3a2f7a 100%);
+  --page-hero-fondo: linear-gradient(160deg, #14132e, #3a2f7a);
+  --hero-cuerpo: #d5d0f0;
+  --hero-titulo: #fff;
+  --hero-texto: #c9c4e6;
+  --hero-acento: #e84fa9;
+  --hero-outline: #fff;
+  --hero-outline-hover: rgba(255, 255, 255, .12);
+  --hero-marca: rgba(255, 255, 255, .05);
+  --footer-fondo: #0e0d21;
+  --footer-texto: #a9a3d1;
+  --footer-hover: #fff;
+  --sombra: 0 6px 24px rgba(0, 0, 0, .35);
+  --sombra-hover: 0 12px 32px rgba(0, 0, 0, .45);
+  --radius: 12px;
+}
+
 /* ===== Base ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
