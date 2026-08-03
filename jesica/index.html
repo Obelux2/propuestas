@@ -82,7 +82,7 @@
   .paso p { color: var(--tinta-suave); font-size: 0.95rem; max-width: 52ch; }
   .como img {
     border-radius: 120px 24px 24px 24px; box-shadow: 0 24px 48px -24px oklch(0.32 0.12 318 / 0.35);
-    aspect-ratio: 604 / 760; object-fit: cover; object-position: top; /* recorta los controles de IG del borde inferior */
+    aspect-ratio: 604 / 760; object-fit: cover;
   }
 
   /* Zonas */
@@ -98,7 +98,11 @@
 
   /* Sobre */
   .sobre { padding: 56px 0 72px; }
-  .sobre .franja { max-width: 720px; }
+  .sobre .franja { max-width: 960px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: center; }
+  .sobre img {
+    border-radius: 24px 24px 24px 120px; box-shadow: 0 24px 48px -24px oklch(0.32 0.12 318 / 0.35);
+    aspect-ratio: 3 / 4; object-fit: cover; object-position: top; /* el recorte deja fuera los papeles de la mesa */
+  }
   .sobre h2 { margin-bottom: 16px; }
   .sobre p { margin-bottom: 14px; max-width: 65ch; }
   .sobre .dato { color: var(--tinta-suave); font-size: 0.95rem; }
@@ -111,7 +115,8 @@
   .voces { background: var(--violeta-tinta); color: oklch(0.96 0.02 320); padding: 72px 0; }
   .voces h2 { color: white; }
   .voces .franja > p.nota { color: oklch(0.8 0.05 320); margin-bottom: 36px; font-size: 0.95rem; }
-  .cita-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .cita-grid { display: grid; grid-template-columns: 240px 1fr 1fr; gap: 48px; align-items: center; }
+  .cita-grid img { border-radius: 24px; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
   blockquote p { font-family: Fraunces, Georgia, serif; font-size: 1.3rem; line-height: 1.45; }
   blockquote footer { margin-top: 14px; font-size: 0.9rem; color: oklch(0.8 0.05 320); }
 
@@ -130,9 +135,10 @@
   }
 
   @media (max-width: 780px) {
-    .hero .franja, .como .franja { grid-template-columns: 1fr; gap: 36px; }
+    .hero .franja, .como .franja, .sobre .franja { grid-template-columns: 1fr; gap: 36px; }
     .como .franja img { order: -1; }
     .cita-grid { grid-template-columns: 1fr; gap: 36px; }
+    .cita-grid img, .sobre img { max-width: 320px; }
     .hero { padding: 24px 0 56px; }
     .hero-foto figcaption { left: 8px; }
   }
@@ -171,7 +177,7 @@
 
 <section class="como" id="como">
   <div class="franja">
-    <img src="assets/visita-domicilio.png" alt="Jésica atendiendo gatos en el living de una casa, con su botiquín de trabajo" width="604" height="820">
+    <img src="assets/domicilio-gatos.jpg" alt="Jésica sentada en el piso de una casa con su botiquín de trabajo, rodeada de tres gatos curiosos" width="960" height="1280" loading="lazy">
     <div>
       <h2>Sin transportadora, sin sala de espera, sin estrés</h2>
       <div class="paso">
@@ -215,10 +221,13 @@
 
 <section class="sobre">
   <div class="franja">
-    <h2>Sobre mí</h2>
-    <p>Soy Jésica, médica veterinaria recibida en la Universidad Nacional de La Plata (promoción 2021), matrícula profesional 15449. Atiendo a domicilio porque estoy convencida de que los animales se examinan mejor donde se sienten seguros: en su casa.</p>
-    <p class="dato">Atiendo en español y en inglés.</p>
-    <p class="sueno">Mi sueño es tener una veterinaria móvil para llegar a más peludos de la zona. Mientras tanto, voy consulta por consulta, casa por casa. ❤️</p>
+    <div>
+      <h2>Sobre mí</h2>
+      <p>Soy Jésica, médica veterinaria recibida en la Universidad Nacional de La Plata (promoción 2021), matrícula profesional 15449. Atiendo a domicilio porque estoy convencida de que los animales se examinan mejor donde se sienten seguros: en su casa.</p>
+      <p class="dato">Atiendo en español y en inglés.</p>
+      <p class="sueno">Mi sueño es tener una veterinaria móvil para llegar a más peludos de la zona. Mientras tanto, voy consulta por consulta, casa por casa. ❤️</p>
+    </div>
+    <img src="assets/jessi-certificado.jpg" alt="Jésica completando un certificado mientras un perro le acerca el hocico a la cara" width="900" height="1600" loading="lazy">
   </div>
 </section>
 
@@ -227,6 +236,7 @@
     <h2>Lo que dicen sus humanos</h2>
     <p class="nota">Opiniones públicas de Facebook, donde tiene el 100% de recomendación.</p>
     <div class="cita-grid">
+      <img src="assets/selfie-chihuahua.jpg" alt="Jésica sonriendo con un chihuahua en brazos" width="590" height="1280" loading="lazy">
       <blockquote>
         <p>«Es lo más, como médica y como ser humano.»</p>
         <footer>Alicia S.</footer>
