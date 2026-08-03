@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dra. Jésica Guaraglia · Veterinaria a domicilio en Zona Sur</title>
+<meta name="description" content="Médica veterinaria (MP 15449, UNLP) con atención a domicilio en Temperley, Lomas de Zamora, Adrogué y Almirante Brown. Consultas, vacunación y seguimiento sin sacar a tu mascota de casa.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --violeta: oklch(0.58 0.22 320);        /* #b03cd0 del logo */
+    --violeta-hondo: oklch(0.48 0.21 318);
+    --violeta-tinta: oklch(0.32 0.12 318);
+    --violeta-velo: oklch(0.95 0.03 320);
+    --crema: oklch(0.985 0.008 320);        /* blanco entibiado hacia el violeta */
+    --tinta: oklch(0.24 0.02 300);
+    --tinta-suave: oklch(0.48 0.02 300);
+    --borde: oklch(0.9 0.015 320);
+    --verde-wsp: oklch(0.62 0.17 150);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Inter, system-ui, sans-serif;
+    color: var(--tinta);
+    background: var(--crema);
+    line-height: 1.6;
+  }
+  h1, h2, .marca { font-family: Fraunces, Georgia, serif; letter-spacing: -0.01em; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .franja { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1060px; margin: 0 auto; padding: 18px 24px;
+  }
+  .marca { display: flex; align-items: center; gap: 12px; font-size: 1.05rem; font-weight: 700; color: var(--violeta-tinta); text-decoration: none; }
+  .marca img { width: 44px; height: 44px; border-radius: 50%; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--violeta); color: white; text-decoration: none;
+    padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
+    transition: background 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn:hover { background: var(--violeta-hondo); transform: translateY(-1px); }
+  .btn svg { width: 18px; height: 18px; }
+
+  /* Hero */
+  .hero { padding: 48px 0 72px; }
+  .hero .franja { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.12; color: var(--violeta-tinta); }
+  .hero h1 em { font-style: normal; color: var(--violeta); }
+  .hero p.bajada { margin: 20px 0 8px; font-size: 1.1rem; color: var(--tinta-suave); max-width: 46ch; }
+  .credencial { margin: 4px 0 28px; font-size: 0.9rem; color: var(--tinta-suave); }
+  .hero-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .hero-cta .alt { font-size: 0.9rem; color: var(--tinta-suave); text-decoration: underline; text-underline-offset: 3px; }
+  .hero-foto { position: relative; }
+  .hero-foto img { border-radius: 24px 24px 120px 24px; box-shadow: 0 24px 48px -24px oklch(0.32 0.12 318 / 0.35); }
+  .hero-foto figcaption {
+    position: absolute; bottom: -16px; left: -12px;
+    background: white; border: 1px solid var(--borde); border-radius: 999px;
+    padding: 8px 18px; font-size: 0.85rem; font-weight: 500; color: var(--violeta-tinta);
+    box-shadow: 0 8px 20px -12px oklch(0.32 0.12 318 / 0.3);
+  }
+
+  /* Cómo atiende */
+  .como { background: var(--violeta-velo); padding: 72px 0; }
+  .como .franja { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
+  .como h2, .zonas h2, .sobre h2, .voces h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: var(--violeta-tinta); margin-bottom: 28px; }
+  .paso { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; }
+  .paso + .paso { margin-top: 26px; }
+  .paso .num {
+    font-family: Fraunces, Georgia, serif; font-size: 1.5rem; font-weight: 700;
+    color: var(--violeta); line-height: 1.3;
+  }
+  .paso h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+  .paso p { color: var(--tinta-suave); font-size: 0.95rem; max-width: 52ch; }
+  .como img {
+    border-radius: 120px 24px 24px 24px; box-shadow: 0 24px 48px -24px oklch(0.32 0.12 318 / 0.35);
+    aspect-ratio: 604 / 760; object-fit: cover; object-position: top; /* recorta los controles de IG del borde inferior */
+  }
+
+  /* Zonas */
+  .zonas { padding: 72px 0 40px; text-align: center; }
+  .zonas h2 { margin-bottom: 12px; }
+  .zonas p { color: var(--tinta-suave); margin-bottom: 28px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .chips span {
+    background: white; border: 1px solid var(--borde); border-radius: 999px;
+    padding: 10px 22px; font-weight: 500; font-size: 0.95rem;
+  }
+  .chips span.abierto { border-style: dashed; color: var(--tinta-suave); }
+
+  /* Sobre */
+  .sobre { padding: 56px 0 72px; }
+  .sobre .franja { max-width: 720px; }
+  .sobre h2 { margin-bottom: 16px; }
+  .sobre p { margin-bottom: 14px; max-width: 65ch; }
+  .sobre .dato { color: var(--tinta-suave); font-size: 0.95rem; }
+  .sobre .sueno {
+    margin-top: 24px; padding: 20px 24px; background: var(--violeta-velo);
+    border-radius: 16px; font-size: 0.98rem;
+  }
+
+  /* Voces */
+  .voces { background: var(--violeta-tinta); color: oklch(0.96 0.02 320); padding: 72px 0; }
+  .voces h2 { color: white; }
+  .voces .franja > p.nota { color: oklch(0.8 0.05 320); margin-bottom: 36px; font-size: 0.95rem; }
+  .cita-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  blockquote p { font-family: Fraunces, Georgia, serif; font-size: 1.3rem; line-height: 1.45; }
+  blockquote footer { margin-top: 14px; font-size: 0.9rem; color: oklch(0.8 0.05 320); }
+
+  /* Contacto */
+  .contacto { padding: 80px 0; text-align: center; }
+  .contacto h2 { font-family: Fraunces, Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--violeta-tinta); margin-bottom: 12px; }
+  .contacto > .franja > p { color: var(--tinta-suave); margin-bottom: 32px; }
+  .btn.wsp { background: var(--verde-wsp); font-size: 1.05rem; padding: 16px 32px; }
+  .btn.wsp:hover { background: oklch(0.54 0.16 150); }
+  .otros-canales { margin-top: 28px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; font-size: 0.95rem; color: var(--tinta-suave); }
+  .otros-canales a { text-underline-offset: 3px; }
+
+  footer.pie {
+    border-top: 1px solid var(--borde); padding: 24px; text-align: center;
+    font-size: 0.85rem; color: var(--tinta-suave);
+  }
+
+  @media (max-width: 780px) {
+    .hero .franja, .como .franja { grid-template-columns: 1fr; gap: 36px; }
+    .como .franja img { order: -1; }
+    .cita-grid { grid-template-columns: 1fr; gap: 36px; }
+    .hero { padding: 24px 0 56px; }
+    .hero-foto figcaption { left: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="marca" href="#">
+    <img src="assets/logo.png" alt="Logo de la Dra. Jésica Guaraglia">
+    Dra. Jésica Guaraglia
+  </a>
+  <a class="btn" href="https://wa.me/5491139013840?text=Hola%20Jesica!%20Quiero%20coordinar%20una%20consulta%20a%20domicilio." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9.9-1.2 2.1-.6 3.5a11.6 11.6 0 0 0 4.5 4.6c1.7.9 2.6 1 3.5.8.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.2-.3Z"/></svg>
+    Escribime
+  </a>
+</header>
+
+<section class="hero">
+  <div class="franja">
+    <div>
+      <h1>La veterinaria va <em>a tu casa</em>, no al revés.</h1>
+      <p class="bajada">Consultas, vacunación y seguimiento a domicilio en la zona sur del Gran Buenos Aires. Tu perro o tu gato se atiende tranquilo, en su lugar de siempre.</p>
+      <p class="credencial">Médica Veterinaria · MP 15449 · Universidad Nacional de La Plata</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/5491139013840?text=Hola%20Jesica!%20Quiero%20coordinar%20una%20consulta%20a%20domicilio." target="_blank" rel="noopener">Coordinar una visita</a>
+        <a class="alt" href="#como">¿Cómo es una consulta?</a>
+      </div>
+    </div>
+    <figure class="hero-foto">
+      <img src="assets/jesica-golden-gato.png" alt="Jésica abrazando a un golden retriever y un gato durante una consulta" width="604" height="600">
+      <figcaption>Recomendada por el 100% de sus pacientes en Facebook</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="como" id="como">
+  <div class="franja">
+    <img src="assets/visita-domicilio.png" alt="Jésica atendiendo gatos en el living de una casa, con su botiquín de trabajo" width="604" height="820">
+    <div>
+      <h2>Sin transportadora, sin sala de espera, sin estrés</h2>
+      <div class="paso">
+        <span class="num">1</span>
+        <div>
+          <h3>Me escribís por WhatsApp</h3>
+          <p>Me contás qué le pasa a tu mascota y coordinamos día y horario para la visita.</p>
+        </div>
+      </div>
+      <div class="paso">
+        <span class="num">2</span>
+        <div>
+          <h3>Voy hasta tu casa</h3>
+          <p>Llego con todo lo necesario: revisación clínica, vacunas, toma de muestras y lo que la consulta requiera.</p>
+        </div>
+      </div>
+      <div class="paso">
+        <span class="num">3</span>
+        <div>
+          <h3>Seguimiento cercano</h3>
+          <p>Quedamos en contacto por el tratamiento, los resultados y cualquier duda que aparezca después.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zonas">
+  <div class="franja">
+    <h2>¿Dónde atiendo?</h2>
+    <p>Zona sur del Gran Buenos Aires:</p>
+    <div class="chips">
+      <span>Temperley</span>
+      <span>Lomas de Zamora</span>
+      <span>Adrogué</span>
+      <span>Almirante Brown</span>
+      <span class="abierto">Otra zona cercana: consultame</span>
+    </div>
+  </div>
+</section>
+
+<section class="sobre">
+  <div class="franja">
+    <h2>Sobre mí</h2>
+    <p>Soy Jésica, médica veterinaria recibida en la Universidad Nacional de La Plata (promoción 2021), matrícula profesional 15449. Atiendo a domicilio porque estoy convencida de que los animales se examinan mejor donde se sienten seguros: en su casa.</p>
+    <p class="dato">Atiendo en español y en inglés.</p>
+    <p class="sueno">Mi sueño es tener una veterinaria móvil para llegar a más peludos de la zona. Mientras tanto, voy consulta por consulta, casa por casa. ❤️</p>
+  </div>
+</section>
+
+<section class="voces">
+  <div class="franja">
+    <h2>Lo que dicen sus humanos</h2>
+    <p class="nota">Opiniones públicas de Facebook, donde tiene el 100% de recomendación.</p>
+    <div class="cita-grid">
+      <blockquote>
+        <p>«Es lo más, como médica y como ser humano.»</p>
+        <footer>Alicia S.</footer>
+      </blockquote>
+      <blockquote>
+        <p>«Excelente atención y cuidados. Dejan siempre hermosa a Milonga y la miman un montón.»</p>
+        <footer>Erica P.</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="franja">
+    <h2>¿Coordinamos una visita?</h2>
+    <p>Respondo por WhatsApp, es la forma más rápida de encontrarme.</p>
+    <a class="btn wsp" href="https://wa.me/5491139013840?text=Hola%20Jesica!%20Quiero%20coordinar%20una%20consulta%20a%20domicilio." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9.9-1.2 2.1-.6 3.5a11.6 11.6 0 0 0 4.5 4.6c1.7.9 2.6 1 3.5.8.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.2-.3Z"/></svg>
+      WhatsApp: +54 9 11 3901-3840
+    </a>
+    <div class="otros-canales">
+      <a href="mailto:pelupichichos@gmail.com">pelupichichos@gmail.com</a>
+      <a href="https://www.instagram.com/mv.pucca/" target="_blank" rel="noopener">Instagram @mv.pucca</a>
+      <a href="https://www.facebook.com/mv.pucca" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer class="pie">
+  Dra. Jésica Guaraglia · Médica Veterinaria MP 15449 · Zona sur, Buenos Aires, Argentina
+</footer>
+
+</body>
+</html>
