@@ -119,6 +119,15 @@
   .cita-grid img { border-radius: 24px; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
   blockquote p { font-family: Fraunces, Georgia, serif; font-size: 1.3rem; line-height: 1.45; }
   blockquote footer { margin-top: 14px; font-size: 0.9rem; color: oklch(0.8 0.05 320); }
+  .voces .resena { margin-top: 40px; text-align: center; }
+  .voces .resena a {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid oklch(0.8 0.05 320 / 0.5); border-radius: 999px;
+    padding: 12px 24px; font-weight: 600; font-size: 0.95rem; text-decoration: none;
+    transition: background 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .voces .resena a:hover { background: oklch(1 0 0 / 0.1); }
+  .voces .resena svg { width: 18px; height: 18px; }
 
   /* Contacto */
   .contacto { padding: 80px 0; text-align: center; }
@@ -246,6 +255,12 @@
         <footer>Erica P.</footer>
       </blockquote>
     </div>
+    <p class="resena">
+      <a href="https://g.page/r/CZNADQoe4gCeEBI/review" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 12.2c0-.7-.1-1.3-.2-1.9H12v3.7h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3Z"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.7-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z"/><path d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1a10 10 0 0 0 0 9.2L6.4 14Z"/><path d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.8-2.8A10 10 0 0 0 3.1 7.4L6.4 10c.8-2.4 3-4.1 5.6-4.1Z"/></svg>
+        Dejá tu reseña en Google
+      </a>
+    </p>
   </div>
 </section>
 
