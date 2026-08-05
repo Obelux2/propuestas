@@ -159,6 +159,9 @@
   /* Instagram y Facebook son los oficiales de Simple Icons (CC0); el sobre es un genérico
      porque el link es un mailto, no la app de Gmail. */
   .otros-canales svg { width: 18px; height: 18px; flex: none; fill: var(--violeta); }
+  /* cada canal con el color oficial de su marca; el sobre queda violeta porque es genérico */
+  .otros-canales a[href*="instagram"] svg { fill: #FF0069; }
+  .otros-canales a[href*="facebook"] svg { fill: #0866FF; }
 
   footer.pie {
     border-top: 1px solid var(--borde); padding: 24px; text-align: center;
