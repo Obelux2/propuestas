@@ -14,7 +14,7 @@
     --violeta: oklch(0.58 0.22 320);        /* #b03cd0 del logo */
     --violeta-hondo: oklch(0.48 0.21 318);
     --violeta-tinta: oklch(0.32 0.12 318);
-    --violeta-velo: oklch(0.95 0.03 320);
+    --violeta-velo: oklch(0.95 0.05 320);   /* croma alto a propósito: con 0.03 se recorta a blanco en monitores sRGB */
     --crema: oklch(0.985 0.008 320);        /* blanco entibiado hacia el violeta */
     --tinta: oklch(0.24 0.02 300);
     --tinta-suave: oklch(0.48 0.02 300);
@@ -88,7 +88,7 @@
   /* Caminito de huellas (decorativo) */
   .huellas {
     position: absolute; left: 0; width: 100%; height: auto;
-    fill: var(--violeta); opacity: 0.16; pointer-events: none; z-index: 0;
+    fill: var(--violeta); opacity: 0.24; pointer-events: none; z-index: 0;
   }
 
   /* Zonas */
@@ -148,7 +148,7 @@
 
   /* Contacto */
   .contacto { position: relative; overflow: hidden; padding: 80px 0; text-align: center; }
-  .contacto .huellas { top: 12px; opacity: 0.14; }
+  .contacto .huellas { top: 12px; opacity: 0.22; }
   .contacto .franja { position: relative; z-index: 1; }
   .contacto h2 { font-family: Fraunces, Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--violeta-tinta); margin-bottom: 12px; }
   .contacto > .franja > p { color: var(--tinta-suave); margin-bottom: 32px; }
@@ -170,8 +170,8 @@
     .hero { padding: 24px 0 56px; }
     .hero-foto figcaption { left: 8px; }
     /* el caminito se agranda en pantalla chica, si no las patitas quedan invisibles */
-    .huellas { width: 230%; left: -65%; opacity: 0.18; }
-    .contacto .huellas { opacity: 0.16; }
+    .huellas { width: 230%; left: -65%; opacity: 0.26; }
+    .contacto .huellas { opacity: 0.24; }
   }
 </style>
 </head>
