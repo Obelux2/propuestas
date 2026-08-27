@@ -1,0 +1,6 @@
+# laconsultadelasofi.cl es el dominio definitivo (confirmado y publicado el
+# 2026-08-06). Indexable desde el 2026-08-06 — decisión de Francisco (HU-06).
+User-agent: *
+Allow: /
+
+Sitemap: https://laconsultadelasofi.cl/sitemap.xml
