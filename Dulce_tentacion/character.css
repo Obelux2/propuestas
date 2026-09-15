@@ -116,3 +116,8 @@ body{background-image:linear-gradient(#fbf3e580,#fbf3e580),url('assets/coffee-pa
 .visit-photo img{height:auto;aspect-ratio:4/3;border-radius:2px}
 .visit-photo figcaption{font-family:Caveat,cursive;font-size:25px;text-align:center;padding:16px 8px 20px;color:var(--accent)}
 @media(max-width:768px){.visit-photo{transform:rotate(1deg)}.visit-photo figcaption{font-size:23px}}
+/* Second selection: original vertical photographs, without generative retouch. */
+.real-machine{max-width:470px;width:100%;justify-self:center}
+.real-machine img{aspect-ratio:3/4;object-fit:cover}
+.visit-photo{max-width:390px;width:100%;justify-self:center}
+.visit-photo img{aspect-ratio:3/4;object-fit:cover}
