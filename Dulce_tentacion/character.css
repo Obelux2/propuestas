@@ -108,3 +108,5 @@ footer .wordmark{font-size:29px}
 /* The coffee drawing is decorative; a cream veil keeps text legible. */
 body{background-image:linear-gradient(#fbf3e580,#fbf3e580),url('assets/coffee-pattern.jpg');background-size:auto,850px 850px;background-position:center top}
 @media(max-width:768px){body{background-size:auto,620px 620px}}
+.menu-board dd{white-space:nowrap}.menu-board dt{min-width:0}
+@media(max-width:400px){.menu-board dl>div{font-size:21px;gap:10px}}

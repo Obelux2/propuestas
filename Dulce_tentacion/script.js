@@ -33,8 +33,8 @@ window.matchMedia('(min-width: 769px)').addEventListener('change', closeMenu);
 
 const filters = document.querySelector('.menu-filters');
 const drinks = [...document.querySelectorAll('.menu-board dl > div')];
-filters.hidden = false;
-filters.addEventListener('click', (event) => {
+if (filters) filters.hidden = false;
+filters?.addEventListener('click', (event) => {
   const button = event.target.closest('button[data-filter]');
   if (!button) return;
   for (const option of filters.querySelectorAll('button')) {
