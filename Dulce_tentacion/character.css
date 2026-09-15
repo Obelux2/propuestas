@@ -110,3 +110,9 @@ body{background-image:linear-gradient(#fbf3e580,#fbf3e580),url('assets/coffee-pa
 @media(max-width:768px){body{background-size:auto,620px 620px}}
 .menu-board dd{white-space:nowrap}.menu-board dt{min-width:0}
 @media(max-width:400px){.menu-board dl>div{font-size:21px;gap:10px}}
+/* Real shop photographs: show the full frame to preserve useful context. */
+.real-machine img{height:auto;aspect-ratio:4/3;object-fit:contain}
+.visit-photo{padding:10px 10px 0;background:#fff8e9;transform:rotate(2deg);box-shadow:6px 14px 25px #67371620;border:1px solid #dcc4a4}
+.visit-photo img{height:auto;aspect-ratio:4/3;border-radius:2px}
+.visit-photo figcaption{font-family:Caveat,cursive;font-size:25px;text-align:center;padding:16px 8px 20px;color:var(--accent)}
+@media(max-width:768px){.visit-photo{transform:rotate(1deg)}.visit-photo figcaption{font-size:23px}}
